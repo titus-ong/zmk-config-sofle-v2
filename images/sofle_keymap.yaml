@@ -1,0 +1,86 @@
+layout: {qmk_keyboard: sofle/rev1}
+layers:
+  default_layer:
+  - ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  - ['0', '', '', Q, W, E, R, T, Y, U]
+  - [I, O, P, BSPC, '', A, S, D, F, G]
+  - [H, J, K, L, ;, '''', '', Z, X, C]
+  - [V, B, MUTE, '', N, M, ',', ., /, RSHFT]
+  - ['', LALT, LCTRL, lower_layer, RET, SPACE, raise_layer, RCTRL, RALT, RGUI]
+  lower_layer:
+  - ['', F1, F2, F3, F4, F5, F6, F7, F8, F9]
+  - [F10, F11, '', '1', '2', '3', '4', '5', '6', '7']
+  - ['8', '9', '0', F12, '', '!', '@', '#', $, '%']
+  - [^, '&', KP MULTIPLY, (, ), '|', '', '=', MINUSS, KP PLUS]
+  - - '{'
+    - '}'
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - '&LBKT'
+    - ']'
+    - ;
+    - ':'
+    - \
+    - {t: "\u25BD", type: trans}
+  - - ''
+    - '&sys_reset'
+    - '&bootloader'
+    - {type: held}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+  raise_layer:
+  - - ''
+    - BT 0
+    - BT 1
+    - BT 2
+    - BT 3
+    - BT 4
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+  - - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - ''
+    - INS
+    - PSCRN
+    - CMENU
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - PG UP
+    - {t: "\u25BD", type: trans}
+  - - UP
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - ''
+    - LALT
+    - LCTRL
+    - LSHFT
+    - {t: "\u25BD", type: trans}
+    - CLCK
+  - [PG DN, LEFT, DOWN, RIGHT, DEL, BSPC, '', UNDO, CUT, COPY]
+  - - PASTE
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+  - - ''
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {type: held}
+    - '&bootloader'
+    - '&sys_reset'
+    - BT CLR
