@@ -20,6 +20,7 @@
 #define TAPPING_TERM_MS 280
 #define QUICK_TAP_MS 125
 
+// Hold taps
 ZMK_BEHAVIOR(hold_kp, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
@@ -28,20 +29,71 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 #define BK_GUI &hold_kp LGUI BSPC
-#define DEL_SHFT &hold_kp LSHFT DEL
+#define SPC_GUI &hold_kp RGUI SPACE
 
-ZMK_BEHAVIOR(hold_layer, hold_tap,
+ZMK_BEHAVIOR(tap_layer, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
     bindings = <&kp>, <&tog>;
 )
-#define BASE_SHFT &hold_layer RSHFT BASE
+#define BASE_LSHFT &tap_layer LSHFT BASE
+#define BASE_RSHFT &tap_layer RSHFT BASE
+
+ZMK_BEHAVIOR(hold_layer, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    global-quick-tap;
+    bindings = <&tog>, <&kp>;
+)
+#define DEL_NUM &hold_kp NUM DEL
+#define RET_NAV &hold_kp NAV RET
+
+// Mod morphs
+ZMK_BEHAVIOR(!_%, mod_morph,
+    bindings = <&kp EXCL>, <&kp PRCNT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(@_^, mod_morph,
+    bindings = <&kp AT>, <&kp CARET>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(#_AMP, mod_morph,
+    bindings = <&kp HASH>, <&kp AMPS>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR($_*, mod_morph,
+    bindings = <&kp DLLR>, <&kp STAR>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(round, mod_morph,
+    bindings = <&kp LPAR>, <&kp RPAR>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(square, mod_morph,
+    bindings = <&kp LBKT>, <&kp RBKT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(curly, mod_morph,
+    bindings = <&kp LBRC>, <&kp RBRC>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(angled, mod_morph,
+    bindings = <&kp LT>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
 
 // Num word
 &num_word {
     layers = <NUM>;
+};
+
+// Sticky shift
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
 };
 
 #define combo_timeout 30
@@ -73,22 +125,50 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
         combo_num_word {
             timeout-ms = <combo_timeout>;
             key-positions = <LM2 LM3>;
+            layers = <BASE NAV CFG>;
             bindings = <&num_word>;
         };
-        combo_NUM {
+        combo_lshift {
+            timeout-ms = <combo_timeout>;
+            key-positions = <LM1 LM2>;
+            layers = <BASE NUM>;
+            bindings = <&kp LSHIFT>;
+        };
+        combo_sticky_lshift {
+            timeout-ms = <combo_timeout>;
+            key-positions = <LB2 LB3>;
+            layers = <BASE>;
+            bindings = <&sk LSHIFT>;
+        };
+        combo_rshift {
+            timeout-ms = <combo_timeout>;
+            key-positions = <RM1 RM2>;
+            layers = <BASE NUM>;
+            bindings = <&kp RSHIFT>;
+        };
+        combo_LCFG {
             timeout-ms = <combo_timeout>;
             key-positions = <LB3 LB4>;
-            bindings = <&tog NUM>;
+            layers = <BASE NUM NAV>;
+            bindings = <&tog CFG>;
+        };
+        combo_RCFG {
+            timeout-ms = <combo_timeout>;
+            key-positions = <RB3 RB4>;
+            layers = <BASE NUM NAV>;
+            bindings = <&tog CFG>;
         };
         combo_NAV {
             timeout-ms = <combo_timeout>;
-            key-positions = <LB2 LB3>;
+            key-positions = <RB1 RB2>;
+            layers = <BASE NUM CFG>;
             bindings = <&tog NAV>;
         };
-        combo_CFG {
+        combo_NUM {
             timeout-ms = <combo_timeout>;
             key-positions = <LB1 LB2>;
-            bindings = <&tog CFG>;
+            layers = <BASE NAV CFG>;
+            bindings = <&tog NUM>;
         };
     };
     keymap {
@@ -96,22 +176,22 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 
         base {
             bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                           ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │  1       │  2       │  3       │  4       │  5       │                           │  6       │  7       │  8       │  9       │  0       │  CFG     │
-    &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                 &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &tog CFG      
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                           ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  Q       │  W       │  E       │  R       │  T       │                           │  Y       │  U       │  I       │  O       │  P       │          │
-    &none      &kp Q      &kp W      &kp E      &kp R      &kp T                                  &kp Y      &kp U      &kp I      &kp O      &kp P      &none   
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                           ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  A       │  S       │  D       │  F       │  G       │                           │  H       │  J       │  K       │  L       │  ; :     │  ' "     │
-    &none      &kp A      &kp S      &kp D      &kp F      &kp G                                  &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT  
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │          │  N       │  M       │  , <     │  . >     │  /       │  SHIFT   │
-    &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT 
-//╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
-//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/SHFT│     │  ENTER   │  SPACE   │  CTRL    │  ALT     │  GUI     │
-                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_SHFT         &kp RET    &kp SPACE  &kp RCTRL  &kp RALT   &kp RGUI
-//                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴──────────┴──────────╯
+//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                            ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+//│          │  1       │  2       │  3       │  4       │  5       │                            │  6       │  7       │  8       │  9       │  0       │          │
+    &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none      
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  Q       │  W       │  E       │  R       │  T       │                            │  Y       │  U       │  I       │  O       │  P       │          │
+    &none      &kp Q      &kp W      &kp E      &kp R      &kp T                                   &kp Y      &kp U      &kp I      &kp O      &kp P      &none   
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  A       │  S       │  D       │  F       │  G       │                            │  H       │  J       │  K       │  L       │  ; :     │          │
+    &none      &kp A      &kp S      &kp D      &kp F      &kp G                                   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none 
+//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤──────────╮     ╭───────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
+    &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
+//╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
+//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPACE   │  ALT     │  CTRL    │  GUI     │
+                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    &kp RALT   &kp RCTRL  &kp RGUI
+//                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -119,22 +199,22 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 
         num {
             bindings = <
-//╭──────────┬──────────┬───────────┬────────────┬────────────┬──────────╮                           ╭──────────┬──────────┬────────────────┬──────────┬──────────┬──────────╮
-//│          │  F1      │  F2       │  F3        │  F4        │  F5      │                           │  F6      │  F7      │  F8            │  F9      │  F10     │  F11     │
-    &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8           &kp F9     &kp F10    &kp F11      
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼────────────────┼──────────┼──────────┼──────────┤
-//│          │  /       │  7        │  8         │  9         │  -       │                           │  ^       │  &       │  *             │  (       │  )       │  F12     │
-    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &kp CARET  &kp AMPS   &kp ASTERISK     &kp LPAR   &kp RPAR   &kp F12      
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼────────────────┼──────────┼──────────┼──────────┤
-//│          │  *       │  4        │  5         │  6         │  +       │                           │  !       │  @       │  #             │  $       │  %       │  |       │
-    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &kp EXCL   &kp AT     &kp HASH         &kp DLLR   &kp PRCNT  &kp PIPE  
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼────────────────┼──────────┼──────────┼──────────┤
-//│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │  [       │  ]       │  ;             │  :       │  \       │          │
-    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &kp LBKT   &kp RBKT   &kp SEMI         &kp COLON  &kp BSLH   &trans
-//╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼────────────────┼──────────┼──────────┴──────────╯
-//                      │           │  SPACE     │  .         │          │  BASE    │     │  BASE    │          │          │                │          │
-                          &none       &kp SPACE    &kp DOT      &trans     BASE_SHFT        BASE_SHFT  &trans     &trans     &trans           &trans
-//                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴────────────────┴──────────╯
+//╭──────────┬──────────┬───────────┬────────────┬────────────┬──────────╮                           ╭──────────┬──────────┬───────────┬──────────┬──────────┬──────────╮
+//│          │  F1      │  F2       │  F3        │  F4        │  F5      │                           │  F6      │  F7      │  F8       │  F9      │  F10     │  F11     │
+    &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &kp F11      
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  /       │  7        │  8         │  9         │  -       │                           │          │  ! %     │  @ ^      │  # &     │  $ *     │  F12     │
+    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &trans     &!_%       &@_^        &#_AMP     &$_*       &kp F12      
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  *       │  4        │  5         │  6         │  +       │                           │          │  ( )     │  [ ]      │  { }     │  ' "     │  < >     │
+    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &trans     &round     &square     &curly     &kp APOS   &angled  
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │          │  - _     │  = +      │  \ |     │  ` ~     │          │
+    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &trans     &kp MINUS  &kp EQUAL   &kp BSLH   &kp GRAVE  &trans
+//╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼───────────┼──────────┼──────────┴──────────╯
+//                      │           │  SPACE     │  .         │          │  BASE    │     │  BASE    │          │          │           │          │
+                          &none       &kp SPACE    &kp DOT      &trans     BASE_LSHFT       BASE_RSHFT &trans     &trans     &trans      &trans
+//                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -146,17 +226,17 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 //│           │           │           │           │           │           │                             │           │            │           │           │           │           │
     &none       &trans      &trans      &trans      &trans      &trans                                    &trans      &trans       &trans      &trans      &trans      &trans      
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                             ├───────────┼────────────┼───────────┼───────────┼───────────┼───────────┤
-//│           │  F9       │  F10      │  F11      │  F12      │           │                             │  PGUP     │            │  ^        │           │           │           │
-    &none       &kp F9      &kp F10     &kp F11     &kp F12     &trans                                    &kp PG_UP   &trans       &kp UP      &trans      &trans      &trans        
-//├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                             ├───────────┼────────────┼───────────┼───────────┼───────────┼───────────┤
-//│           │  F5       │  F6       │  F7       │  F8       │           │                             │  PGDN     │  <-        │  v        │  ->       │  DEL      │  BKSPC    │
-    &none       &kp F5      &kp F6      &kp F7      &kp F8      &trans                                    &kp PG_DN   &kp LEFT     &kp DOWN    &kp RIGHT   &kp DEL     &kp BSPC  
+//│           │  F9       │  F10      │  F11      │  F12      │           │                             │  PGUP     │  HOME      │  ^        │  END      │  PGUP     │           │
+    &none       &kp F9      &kp F10     &kp F11     &kp F12     &trans                                    &kp PG_UP   &kp HOME     &kp UP      &kp END     &kp PG_UP   &trans        
+//├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                             ├───────────┼────────────┼───────────┼───────────├───────────┼───────────┤
+//│           │  F5       │  F6       │  F7       │  F8       │           │                             │  PGDN     │  <-        │  v        │  ->       │  PGDN     │           │
+    &none       &kp F5      &kp F6      &kp F7      &kp F8      &trans                                    &kp PG_DN   &kp LEFT     &kp DOWN    &kp RIGHT   &kp PG_DN   &trans  
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮     ╭───────────┼───────────┼────────────┼───────────┼───────────┼───────────┼───────────┤
-//│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │  INS      │  PSCR      │           │           │           │           │
-    &none       &kp F1      &kp F2      &kp F3      &kp F4      &trans      &trans            &trans      &kp INS     &kp PSCRN    &trans      &trans      &trans      &trans 
+//│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │           │  INS       │  PSCR     │  CAPS     │           │           │
+    &none       &kp F1      &kp F2      &kp F3      &kp F4      &trans      &trans            &trans      &trans      &kp INS      &kp PSCRN   &kp CAPS    &trans      &trans 
 //╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼     ├───────────┼───────────┼────────────┼───────────┼───────────┼───────────┴───────────╯
-//                        │           │           │           │           │  BASE     │     │  BASE     │           │  BOOTLDR   │  RESET    │  BTCLR    │
-                            &none        &trans     &trans      &trans      BASE_SHFT         BASE_SHFT   &trans      &bootloader  &sys_reset  &bt BT_CLR
+//                        │           │           │           │           │  BASE     │     │  BASE     │           │            │           │           │
+                            &none        &trans     &trans      &trans      BASE_LSHFT        BASE_RSHFT  &trans      &trans       &trans      &trans    
 //                        ╰───────────┴───────────┴───────────┴───────────┴───────────╯     ╰───────────┴───────────┴────────────┴───────────┴───────────╯
             >;
 
@@ -179,7 +259,7 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     &none       &trans        &trans        &trans        &trans        &trans        &trans           &trans     &trans     &trans       &trans       &trans     &trans     &trans
 //╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
 //                          │             │   RESET     │  BOOTLDR    │             │  BASE    │     │  BASE    │          │  BOOTLDR   │  RESET     │          │
-                              &none          &sys_reset   &bootloader   &trans        BASE_SHFT        BASE_SHFT  &trans     &bootloader  &sys_reset   &trans
+                              &none          &sys_reset   &bootloader   &trans        BASE_LSHFT       BASE_RSHFT &trans     &bootloader  &sys_reset   &trans
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 

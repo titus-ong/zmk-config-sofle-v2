@@ -2,40 +2,58 @@ layout: {qmk_keyboard: sofle/rev1}
 layers:
   base:
   - ['', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-  - ['0', cfg, '', Q, W, E, R, T, Y, U]
+  - ['0', '', '', Q, W, E, R, T, Y, U]
   - [I, O, P, '', '', A, S, D, F, G]
-  - [H, J, K, L, ;, '''', '', Z, X, C]
-  - [V, B, MUTE, '', N, M, ',', ., /, RSHFT]
+  - [H, J, K, L, ;, '', '', Z, X, C]
+  - [V, B, MUTE, '', N, M, ',', ., /, '']
   - - ''
     - LCTRL
     - LALT
     - {t: BSPC, h: LGUI}
-    - {t: DEL, h: LSHFT}
-    - RET
-    - SPACE
-    - RCTRL
+    - {t: DEL, h: num}
+    - {t: RET, h: nav}
+    - {t: SPACE, h: RGUI}
     - RALT
+    - RCTRL
     - RGUI
   num:
   - ['', F1, F2, F3, F4, F5, F6, F7, F8, F9]
-  - [F10, F11, '', /, '7', '8', '9', '-', ^, '&']
-  - ['*', (, ), F12, '', '*', '4', '5', '6', +]
-  - ['!', '@', '#', $, '%', '|', '', '0', '1', '2']
+  - - F10
+    - F11
+    - ''
+    - /
+    - '7'
+    - '8'
+    - '9'
+    - '-'
+    - {t: "\u25BD", type: trans}
+    - '&!_%'
+  - ['&@_^', '&#_AMP', '&$_*', F12, '', '*', '4', '5', '6', +]
+  - - {t: "\u25BD", type: trans}
+    - '&round'
+    - '&square'
+    - '&curly'
+    - .
+    - '&angled'
+    - ''
+    - '0'
+    - '1'
+    - '2'
   - - '3'
     - RET
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
-    - '['
-    - ']'
-    - ;
-    - ':'
+    - {t: "\u25BD", type: trans}
+    - '-'
+    - '='
     - \
+    - '`'
     - {t: "\u25BD", type: trans}
   - - ''
     - SPACE
     - .
     - {t: "\u25BD", type: trans}
-    - {t: '0', h: RSHFT}
+    - {type: held}
     - {t: '0', h: RSHFT}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
@@ -61,10 +79,10 @@ layers:
     - F12
     - {t: "\u25BD", type: trans}
     - PG UP
-    - {t: "\u25BD", type: trans}
+    - HOME
   - - UP
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
+    - END
+    - PG UP
     - {t: "\u25BD", type: trans}
     - ''
     - F5
@@ -72,27 +90,36 @@ layers:
     - F7
     - F8
     - {t: "\u25BD", type: trans}
-  - [PG DN, LEFT, DOWN, RIGHT, DEL, BSPC, '', F1, F2, F3]
+  - - PG DN
+    - LEFT
+    - DOWN
+    - RIGHT
+    - PG DN
+    - {t: "\u25BD", type: trans}
+    - ''
+    - F1
+    - F2
+    - F3
   - - F4
+    - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - INS
     - PSCRN
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
+    - CAPS
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
   - - ''
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
-    - {t: '0', h: RSHFT}
-    - {t: '0', h: RSHFT}
+    - {t: '0', h: LSHFT}
+    - {type: held}
     - {t: "\u25BD", type: trans}
-    - '&bootloader'
-    - '&sys_reset'
-    - BT CLR
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
   cfg:
   - - ''
     - BT 0
@@ -148,7 +175,7 @@ layers:
     - '&sys_reset'
     - '&bootloader'
     - {t: "\u25BD", type: trans}
-    - {t: '0', h: RSHFT}
+    - {t: '0', h: LSHFT}
     - {t: '0', h: RSHFT}
     - {t: "\u25BD", type: trans}
     - '&bootloader'
@@ -166,9 +193,25 @@ combos:
   l: [base]
 - p: [27, 26]
   k: '&num_word'
-- p: [38, 37]
-  k: num
+  l: [base, nav, cfg]
+- p: [28, 27]
+  k: LSHIFT
+  l: [base, num]
 - p: [39, 38]
-  k: nav
-- p: [40, 39]
+  k: {t: LSHIFT, h: sticky}
+  l: [base]
+- p: [31, 32]
+  k: RSHIFT
+  l: [base, num]
+- p: [38, 37]
   k: cfg
+  l: [base, num, nav]
+- p: [47, 48]
+  k: cfg
+  l: [base, num, nav]
+- p: [45, 46]
+  k: nav
+  l: [base, num, cfg]
+- p: [40, 39]
+  k: num
+  l: [base, nav, cfg]
