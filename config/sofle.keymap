@@ -51,43 +51,43 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <combo_timeout>;
-            key-positions = <LM1 LM2>;
+            key-positions = <LT1 LT2>;
             bindings = <&kp TAB>;
         };
         combo_shift_tab {
             timeout-ms = <combo_timeout>;
-            key-positions = <LM2 LM3>;
+            key-positions = <LT2 LT3>;
             bindings = <&kp LS(TAB)>;
         };
         combo_esc {
             timeout-ms = <combo_timeout>;
-            key-positions = <LM3 LM4>;
+            key-positions = <LT3 LT4>;
             bindings = <&kp ESC>;
         };
         combo_caps_word {
             timeout-ms = <combo_timeout>;
-            key-positions = <LB3 LB4>;
+            key-positions = <LM3 LM4>;
             layers = <BASE>;
             bindings = <&caps_word>;
         };
         combo_num_word {
             timeout-ms = <combo_timeout>;
-            key-positions = <LB2 LB3>;
+            key-positions = <LM2 LM3>;
             bindings = <&num_word>;
         };
         combo_NUM {
             timeout-ms = <combo_timeout>;
-            key-positions = <LF3 LF4>;
+            key-positions = <LB3 LB4>;
             bindings = <&tog NUM>;
         };
         combo_NAV {
             timeout-ms = <combo_timeout>;
-            key-positions = <LF2 LF3>;
+            key-positions = <LB2 LB3>;
             bindings = <&tog NAV>;
         };
         combo_CFG {
             timeout-ms = <combo_timeout>;
-            key-positions = <LF1 LF2>;
+            key-positions = <LB1 LB2>;
             bindings = <&tog CFG>;
         };
     };
