@@ -27,8 +27,8 @@ layers:
     - '9'
     - '-'
     - {t: "\u25BD", type: trans}
-    - '&!_%'
-  - ['&@_^', '&#_AMP', '&$_*', F12, '', '*', '4', '5', '6', +]
+    - '&excl_pct'
+  - ['&at_caret', '&hash_amp', '&dlr_star', F12, '', '*', '4', '5', '6', +]
   - - {t: "\u25BD", type: trans}
     - '&round'
     - '&square'

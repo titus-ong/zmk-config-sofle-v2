@@ -52,19 +52,19 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 #define RET_NAV &hold_kp NAV RET
 
 // Mod morphs
-ZMK_BEHAVIOR(!_%, mod_morph,
+ZMK_BEHAVIOR(excl_pct, mod_morph,
     bindings = <&kp EXCL>, <&kp PRCNT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(@_^, mod_morph,
+ZMK_BEHAVIOR(at_caret, mod_morph,
     bindings = <&kp AT>, <&kp CARET>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(#_AMP, mod_morph,
+ZMK_BEHAVIOR(hash_amp, mod_morph,
     bindings = <&kp HASH>, <&kp AMPS>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR($_*, mod_morph,
+ZMK_BEHAVIOR(dlr_star, mod_morph,
     bindings = <&kp DLLR>, <&kp STAR>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
@@ -204,7 +204,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
     &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &kp F11      
 //├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
 //│          │  /       │  7        │  8         │  9         │  -       │                           │          │  ! %     │  @ ^      │  # &     │  $ *     │  F12     │
-    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &trans     &!_%       &@_^        &#_AMP     &$_*       &kp F12      
+    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &trans     &excl_pct  &at_caret   &hash_amp  &dlr_star  &kp F12      
 //├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
 //│          │  *       │  4        │  5         │  6         │  +       │                           │          │  ( )     │  [ ]      │  { }     │  ' "     │  < >     │
     &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &trans     &round     &square     &curly     &kp APOS   &angled  
