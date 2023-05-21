@@ -2,7 +2,7 @@
 
 ## Keymap
 
-![keymap](images/sofle_keymap.ortho.svg "Sofle keymap")
+![keymap](images/sofle.svg "Sofle keymap")
 
 ## Use Cases
 

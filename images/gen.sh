@@ -4,5 +4,6 @@
 # Requires python 3.10
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 parent_dir=$(builtin cd "$script_dir/.."; pwd)
-keymap -c "$script_dir/config.yaml" parse -c 10 -z "$parent_dir/config/sofle.keymap" > "$script_dir/sofle_keymap.yaml"
-keymap -c "$script_dir/config.yaml" draw "$script_dir/sofle_keymap.yaml" > "$script_dir/sofle_keymap.ortho.svg"
+keymap -c "$script_dir/config.yaml" parse -c 14 -z "$parent_dir/config/sofle.keymap" > "$script_dir/sofle.yaml"
+keymap -c "$script_dir/config.yaml" draw "$script_dir/sofle.yaml" > "$script_dir/sofle.svg"
+rm "$script_dir/sofle.yaml"
