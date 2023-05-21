@@ -46,7 +46,7 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
-    bindings = <&tog>, <&kp>;
+    bindings = <&mo>, <&kp>;
 )
 #define DEL_NUM &hold_layer NUM DEL
 #define RET_NAV &hold_layer NAV RET
@@ -56,7 +56,7 @@ ZMK_BEHAVIOR(both_layer, hold_tap,
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
-    bindings = <&tog>, <&tog>;
+    bindings = <&mo>, <&tog>;
 )
 #define NAV_NUM &both_layer NUM NAV
 
@@ -181,7 +181,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB3 LB4>;
             layers = <NAV NUM CFG>;
-            bindings = <&tog BASE>;
+            bindings = <&to BASE>;
         };
         combo_RBASE {
             timeout-ms = <combo_timeout>;
