@@ -6,6 +6,7 @@ on:
     paths:
       - 'config/*.keymap'
       - 'config/*.dtsi'
+      - 'images/config.yaml'
       # - 'config/boards/*/*/*.keymap'
 
 jobs:
