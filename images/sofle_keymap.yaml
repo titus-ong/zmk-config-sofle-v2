@@ -12,7 +12,7 @@ layers:
     - {t: BSPC, h: LGUI}
     - {t: DEL, h: num}
     - {t: RET, h: nav}
-    - {t: SPACE, h: RGUI}
+    - SPACE
     - RALT
     - RCTRL
     - RGUI

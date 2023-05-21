@@ -18,7 +18,7 @@
 
 // Behaviours
 #define TAPPING_TERM_MS 280
-#define QUICK_TAP_MS 125
+#define QUICK_TAP_MS 175
 
 // Hold taps
 ZMK_BEHAVIOR(hold_kp, hold_tap,
@@ -29,14 +29,13 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 #define BK_GUI &hold_kp LGUI BSPC
-#define SPC_GUI &hold_kp RGUI SPACE
 
 ZMK_BEHAVIOR(tap_layer, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
-    bindings = <&kp>, <&tog>;
+    bindings = <&kp>, <&to>;
 )
 #define BASE_LSHFT &tap_layer LSHFT BASE
 #define BASE_RSHFT &tap_layer RSHFT BASE
@@ -136,7 +135,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
         };
         combo_lshift {
             timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LM1 LM2>;
             layers = <BASE NUM>;
             bindings = <&kp LSHIFT>;
@@ -150,7 +148,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
         };
         combo_rshift {
             timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RM1 RM2>;
             layers = <BASE NUM>;
             bindings = <&kp RSHIFT>;
@@ -203,7 +200,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
     &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
 //╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
 //                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPACE   │  ALT     │  CTRL    │  GUI     │
-                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    &kp RALT   &kp RCTRL  &kp RGUI
+                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NUM          RET_NAV     &kp SPACE    &kp RALT   &kp RCTRL  &kp RGUI
 //                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
