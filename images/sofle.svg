@@ -214,16 +214,18 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="128.0" y="141.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="154.0" class="combo tap">ESC</text>
 <rect rx="6.0" ry="6.0" x="772.0" y="186.5" width="28.0" height="26.0" class="combo"/>
-<text x="786.0" y="199.5" class="combo tap">CAPSWORD</text>
+<text x="786.0" y="199.5" class="combo tap">
+<tspan x="786.0" dy="-0.6em">CAPS</tspan><tspan x="786.0" dy="1.2em">WORD</tspan></text>
 <rect rx="6.0" ry="6.0" x="184.0" y="186.5" width="28.0" height="26.0" class="combo"/>
-<text x="198.0" y="199.5" class="combo tap">NUMWORD</text>
+<text x="198.0" y="199.5" class="combo tap">
+<tspan x="198.0" dy="-0.6em">NUM</tspan><tspan x="198.0" dy="1.2em">WORD</tspan></text>
 <rect rx="6.0" ry="6.0" x="240.0" y="186.5" width="28.0" height="26.0" class="combo"/>
-<text x="254.0" y="199.5" class="combo tap">LSHIFT</text>
+<text x="254.0" y="199.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="184.0" y="242.5" width="28.0" height="26.0" class="combo"/>
-<text x="198.0" y="255.5" class="combo tap">LSHIFT</text>
+<text x="198.0" y="255.5" class="combo tap">⇧</text>
 <text x="198.0" y="266.5" class="combo hold">sticky</text>
 <rect rx="6.0" ry="6.0" x="716.0" y="186.5" width="28.0" height="26.0" class="combo"/>
-<text x="730.0" y="199.5" class="combo tap">RSHIFT</text>
+<text x="730.0" y="199.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="128.0" y="85.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="98.0" class="combo tap">cfg</text>
 <rect rx="6.0" ry="6.0" x="828.0" y="85.0" width="28.0" height="26.0" class="combo"/>
@@ -345,7 +347,7 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="284.0" y="674.0" width="52.0" height="52.0" class="trans key"/>
 <text x="310.0" y="700.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="368.0" y="674.0" width="52.0" height="80.0" class="key"/>
-<text x="394.0" y="714.0" class="tap">LSHFT</text>
+<text x="394.0" y="714.0" class="tap">LSHIFT</text>
 <rect rx="6.0" ry="6.0" x="564.0" y="674.0" width="52.0" height="80.0" class="held key"/>
 <rect rx="6.0" ry="6.0" x="648.0" y="674.0" width="52.0" height="52.0" class="trans key"/>
 <text x="674.0" y="700.0" class="trans tap">▽</text>
@@ -362,12 +364,12 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="128.0" y="519.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="532.0" class="combo tap">ESC</text>
 <rect rx="6.0" ry="6.0" x="240.0" y="564.5" width="28.0" height="26.0" class="combo"/>
-<text x="254.0" y="577.5" class="combo tap">LSHIFT</text>
+<text x="254.0" y="577.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="184.0" y="620.5" width="28.0" height="26.0" class="combo"/>
-<text x="198.0" y="633.5" class="combo tap">LSHIFT</text>
+<text x="198.0" y="633.5" class="combo tap">⇧</text>
 <text x="198.0" y="644.5" class="combo hold">sticky</text>
 <rect rx="6.0" ry="6.0" x="716.0" y="564.5" width="28.0" height="26.0" class="combo"/>
-<text x="730.0" y="577.5" class="combo tap">RSHIFT</text>
+<text x="730.0" y="577.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="128.0" y="463.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="476.0" class="combo tap">cfg</text>
 <rect rx="6.0" ry="6.0" x="828.0" y="463.0" width="28.0" height="26.0" class="combo"/>
@@ -503,7 +505,7 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="368.0" y="1052.0" width="52.0" height="80.0" class="held key"/>
 <rect rx="6.0" ry="6.0" x="564.0" y="1052.0" width="52.0" height="80.0" class="key"/>
 <text x="590.0" y="1092.0" class="tap">2</text>
-<text x="590.0" y="1130.0" class="hold">LSHFT</text>
+<text x="590.0" y="1130.0" class="hold">LSHIFT</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="1052.0" width="52.0" height="52.0" class="trans key"/>
 <text x="674.0" y="1078.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="704.0" y="1046.4" width="52.0" height="52.0" class="trans key"/>
@@ -519,12 +521,12 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="128.0" y="897.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="910.0" class="combo tap">ESC</text>
 <rect rx="6.0" ry="6.0" x="240.0" y="942.5" width="28.0" height="26.0" class="combo"/>
-<text x="254.0" y="955.5" class="combo tap">LSHIFT</text>
+<text x="254.0" y="955.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="184.0" y="998.5" width="28.0" height="26.0" class="combo"/>
-<text x="198.0" y="1011.5" class="combo tap">LSHIFT</text>
+<text x="198.0" y="1011.5" class="combo tap">⇧</text>
 <text x="198.0" y="1022.5" class="combo hold">sticky</text>
 <rect rx="6.0" ry="6.0" x="716.0" y="942.5" width="28.0" height="26.0" class="combo"/>
-<text x="730.0" y="955.5" class="combo tap">RSHIFT</text>
+<text x="730.0" y="955.5" class="combo tap">⇧</text>
 <rect rx="6.0" ry="6.0" x="128.0" y="841.0" width="28.0" height="26.0" class="combo"/>
 <text x="142.0" y="854.0" class="combo tap">cfg</text>
 <rect rx="6.0" ry="6.0" x="828.0" y="841.0" width="28.0" height="26.0" class="combo"/>
@@ -649,10 +651,10 @@ path.combo {
 <text x="310.0" y="1456.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="368.0" y="1430.0" width="52.0" height="80.0" class="key"/>
 <text x="394.0" y="1470.0" class="tap">0</text>
-<text x="394.0" y="1508.0" class="hold">LSHFT</text>
+<text x="394.0" y="1508.0" class="hold">LSHIFT</text>
 <rect rx="6.0" ry="6.0" x="564.0" y="1430.0" width="52.0" height="80.0" class="key"/>
 <text x="590.0" y="1470.0" class="tap">0</text>
-<text x="590.0" y="1508.0" class="hold">RSHFT</text>
+<text x="590.0" y="1508.0" class="hold">RSHIFT</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="1430.0" width="52.0" height="52.0" class="trans key"/>
 <text x="674.0" y="1456.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="704.0" y="1424.4" width="52.0" height="52.0" class="key"/>

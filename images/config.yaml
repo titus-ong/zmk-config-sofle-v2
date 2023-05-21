@@ -190,8 +190,8 @@ parse_config:
   raw_binding_map:
     "&bootloader": "BOOT"
     "&sys_reset": "RESET"
-    "&num_word": "NUMWORD"
-    "&caps_word": "CAPSWORD"
+    "&num_word": "NUM\nWORD"
+    "&caps_word": "CAPS\nWORD"
     "&excl_pct": "% !"
     "&at_caret": "^ @"
     "&hash_amp": "& #"
@@ -272,3 +272,7 @@ parse_config:
     TILDE2: '~'
     UNDER: _
     UNDERSCORE: _
+    LSHFT: LSHIFT
+    LSHIFT: ⇧
+    RSHFT: RSHIFT
+    RSHIFT: ⇧
