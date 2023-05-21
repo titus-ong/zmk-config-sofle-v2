@@ -1,0 +1,14 @@
+#!/bin/bash
+
+script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+parent_dir=$(builtin cd "$script_dir/.."; pwd)
+root_dir=$(builtin cd "$parent_dir/.."; pwd)
+"$root_dir/images/gen.sh"
+git diff --exit-code "$root_dir/images/*.svg" > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+    exit 0
+else
+    echo "Please add the updated .svg"
+    exit 1
+fi

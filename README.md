@@ -37,16 +37,26 @@ Programming requires more specific syntax:
 4. ALL CAPS
    - Use cases are constants and SQL statements. Caps word is good for this
 
-### Quick Access
+### Quick access
 
 1. CFG layer: top edge combo
 2. BASE layer: bottom edge combo
+
+### No leftmost column keys
+
+Due to my bad soldering.
 
 ## Other Considerations
 
 - Is a LCTRL and LALT required for Mac? Just use RCTRL and RALT together with right keys for arrow keys/movement.
 - Is alt enter the "alternative" enter in Mac? If so, can experiment with tap dance enter = alt enter.
 - Change Del to Shift Backspace to free up outer thumb key to be tap numword, hold num layer etc?
+
+## Generating the keymap
+
+See the instructions to install keymap drawer at https://github.com/caksoylar/keymap-drawer.
+
+You can run `images/gen.sh` to see the generated keymap. Run `hooks/install.sh` to install a pre-commit git hook that ensures the latest generated `.svg` is committed together with your `.keymap` changes.
 
 ## Todo
 
