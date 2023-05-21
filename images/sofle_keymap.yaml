@@ -16,49 +16,6 @@ layers:
     - RALT
     - RCTRL
     - RGUI
-  num:
-  - ['', F1, F2, F3, F4, F5, F6, F7, F8, F9]
-  - - F10
-    - F11
-    - ''
-    - /
-    - '7'
-    - '8'
-    - '9'
-    - '-'
-    - {t: "\u25BD", type: trans}
-    - '&excl_pct'
-  - ['&at_caret', '&hash_amp', '&dlr_star', F12, '', '*', '4', '5', '6', +]
-  - - {t: "\u25BD", type: trans}
-    - '&round'
-    - '&square'
-    - '&curly'
-    - .
-    - '&angled'
-    - ''
-    - '0'
-    - '1'
-    - '2'
-  - - '3'
-    - RET
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
-    - '-'
-    - '='
-    - \
-    - '`'
-    - {t: "\u25BD", type: trans}
-  - - ''
-    - SPACE
-    - .
-    - {t: "\u25BD", type: trans}
-    - {type: held}
-    - {t: '0', h: RSHFT}
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
-    - {t: "\u25BD", type: trans}
   nav:
   - - ''
     - {t: "\u25BD", type: trans}
@@ -114,8 +71,51 @@ layers:
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
-    - {t: '0', h: LSHFT}
+    - LSHFT
     - {type: held}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+  num:
+  - ['', F1, F2, F3, F4, F5, F6, F7, F8, F9]
+  - - F10
+    - F11
+    - ''
+    - /
+    - '7'
+    - '8'
+    - '9'
+    - _ -
+    - {t: "\u25BD", type: trans}
+    - '% !'
+  - [^ @, '& #', '* $', F12, '', '*', '4', '5', '6', +]
+  - - {t: "\u25BD", type: trans}
+    - ) (
+    - '] ['
+    - '} {'
+    - '" '''
+    - '> <'
+    - ''
+    - '0'
+    - '1'
+    - '2'
+  - - '3'
+    - RET
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - {t: "\u25BD", type: trans}
+    - _ -
+    - + =
+    - '| \'
+    - ~ `
+    - {t: "\u25BD", type: trans}
+  - - ''
+    - SPACE
+    - .
+    - {t: "\u25BD", type: trans}
+    - {type: held}
+    - {t: '2', h: LSHFT}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
@@ -172,46 +172,55 @@ layers:
     - {t: "\u25BD", type: trans}
     - {t: "\u25BD", type: trans}
   - - ''
-    - '&sys_reset'
-    - '&bootloader'
+    - RESET
+    - BOOT
     - {t: "\u25BD", type: trans}
     - {t: '0', h: LSHFT}
     - {t: '0', h: RSHFT}
     - {t: "\u25BD", type: trans}
-    - '&bootloader'
-    - '&sys_reset'
+    - BOOT
+    - RESET
     - {t: "\u25BD", type: trans}
 combos:
 - p: [16, 15]
   k: TAB
 - p: [15, 14]
-  k: LS(TAB)
+  k: "\u21E7TAB"
 - p: [14, 13]
   k: ESC
-- p: [26, 25]
-  k: '&caps_word'
+- p: [32, 33]
+  k: CAPSWORD
   l: [base]
 - p: [27, 26]
-  k: '&num_word'
-  l: [base, nav, cfg]
+  k: NUMWORD
+  l: [base]
 - p: [28, 27]
   k: LSHIFT
-  l: [base, num]
+  l: [base, nav, num]
 - p: [39, 38]
   k: {t: LSHIFT, h: sticky}
-  l: [base]
+  l: [base, nav, num]
 - p: [31, 32]
   k: RSHIFT
-  l: [base, num]
+  l: [base, nav, num]
+- p: [2, 1]
+  k: cfg
+  l: [base, nav, num]
+- p: [9, 10]
+  k: cfg
+  l: [base, nav, num]
 - p: [38, 37]
-  k: cfg
-  l: [base, num, nav]
+  k: base
+  l: [nav, num, cfg]
 - p: [47, 48]
-  k: cfg
-  l: [base, num, nav]
+  k: base
+  l: [nav, num, cfg]
+- p: [26, 25]
+  k: nav
+  l: [base, nav]
 - p: [45, 46]
   k: nav
-  l: [base, num, cfg]
+  l: [base, nav]
 - p: [40, 39]
   k: num
-  l: [base, nav, cfg]
+  l: [base, num]

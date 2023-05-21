@@ -12,8 +12,8 @@
 
 // layer shortcuts, must match order in which they are defined below
 #define BASE 0
-#define NUM 1
-#define NAV 2
+#define NAV 1
+#define NUM 2
 #define CFG 3
 
 // Behaviours
@@ -39,6 +39,7 @@ ZMK_BEHAVIOR(tap_layer, hold_tap,
 )
 #define BASE_LSHFT &tap_layer LSHFT BASE
 #define BASE_RSHFT &tap_layer RSHFT BASE
+#define NUM_SHFT &tap_layer LSHFT NUM
 
 ZMK_BEHAVIOR(hold_layer, hold_tap,
     flavor = "hold-preferred";
@@ -47,8 +48,17 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     global-quick-tap;
     bindings = <&tog>, <&kp>;
 )
-#define DEL_NUM &hold_kp NUM DEL
-#define RET_NAV &hold_kp NAV RET
+#define DEL_NUM &hold_layer NUM DEL
+#define RET_NAV &hold_layer NAV RET
+
+ZMK_BEHAVIOR(both_layer, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    global-quick-tap;
+    bindings = <&tog>, <&tog>;
+)
+#define NAV_NUM &both_layer NUM NAV
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
@@ -122,7 +132,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
         combo_caps_word {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
-            key-positions = <LM3 LM4>;
+            key-positions = <RM2 RM3>;
             layers = <BASE>;
             bindings = <&caps_word>;
         };
@@ -130,54 +140,75 @@ ZMK_BEHAVIOR(angled, mod_morph,
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LM2 LM3>;
-            layers = <BASE NAV CFG>;
+            layers = <BASE>;
             bindings = <&num_word>;
         };
         combo_lshift {
             timeout-ms = <combo_timeout>;
             key-positions = <LM1 LM2>;
-            layers = <BASE NUM>;
+            layers = <BASE NAV NUM>;
             bindings = <&kp LSHIFT>;
         };
         combo_sticky_lshift {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB2 LB3>;
-            layers = <BASE>;
+            layers = <BASE NAV NUM>;
             bindings = <&sk LSHIFT>;
         };
         combo_rshift {
             timeout-ms = <combo_timeout>;
             key-positions = <RM1 RM2>;
-            layers = <BASE NUM>;
+            layers = <BASE NAV NUM>;
             bindings = <&kp RSHIFT>;
         };
         combo_LCFG {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
-            key-positions = <LB3 LB4>;
-            layers = <BASE NUM NAV>;
+            key-positions = <LN3 LN4>;
+            layers = <BASE NAV NUM>;
             bindings = <&tog CFG>;
         };
         combo_RCFG {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
-            key-positions = <RB3 RB4>;
-            layers = <BASE NUM NAV>;
+            key-positions = <RN3 RN4>;
+            layers = <BASE NAV NUM>;
             bindings = <&tog CFG>;
         };
-        combo_NAV {
+        combo_LBASE {
+            timeout-ms = <combo_timeout>;
+            global-quick-tap-ms = <combo_global_quick_tap>;
+            key-positions = <LB3 LB4>;
+            layers = <NAV NUM CFG>;
+            bindings = <&tog BASE>;
+        };
+        combo_RBASE {
+            timeout-ms = <combo_timeout>;
+            global-quick-tap-ms = <combo_global_quick_tap>;
+            key-positions = <RB3 RB4>;
+            layers = <NAV NUM CFG>;
+            bindings = <&to BASE>;
+        };
+        combo_LNAV {
+            timeout-ms = <combo_timeout>;
+            global-quick-tap-ms = <combo_global_quick_tap>;
+            key-positions = <LM3 LM4>;
+            layers = <BASE NAV>;
+            bindings = <&tog NAV>;
+        };
+        combo_RNAV {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RB1 RB2>;
-            layers = <BASE NUM CFG>;
+            layers = <BASE NAV>;
             bindings = <&tog NAV>;
         };
         combo_NUM {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB1 LB2>;
-            layers = <BASE NAV CFG>;
+            layers = <BASE NUM>;
             bindings = <&tog NUM>;
         };
     };
@@ -207,29 +238,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        num {
-            bindings = <
-//╭──────────┬──────────┬───────────┬────────────┬────────────┬──────────╮                           ╭──────────┬──────────┬───────────┬──────────┬──────────┬──────────╮
-//│          │  F1      │  F2       │  F3        │  F4        │  F5      │                           │  F6      │  F7      │  F8       │  F9      │  F10     │  F11     │
-    &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &kp F11      
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  /       │  7        │  8         │  9         │  -       │                           │          │  ! %     │  @ ^      │  # &     │  $ *     │  F12     │
-    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &trans     &excl_pct  &at_caret   &hash_amp  &dlr_star  &kp F12      
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  *       │  4        │  5         │  6         │  +       │                           │          │  ( )     │  [ ]      │  { }     │  ' "     │  < >     │
-    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &trans     &round     &square     &curly     &kp APOS   &angled  
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │          │  - _     │  = +      │  \ |     │  ` ~     │          │
-    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &trans     &kp MINUS  &kp EQUAL   &kp BSLH   &kp GRAVE  &trans
-//╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼───────────┼──────────┼──────────┴──────────╯
-//                      │           │  SPACE     │  .         │          │  BASE    │     │  BASE    │          │          │           │          │
-                          &none       &kp SPACE    &kp DOT      &trans     BASE_LSHFT       BASE_RSHFT &trans     &trans     &trans      &trans
-//                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
         nav {
             bindings = <
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮                             ╭───────────┬────────────┬───────────┬───────────┬───────────┬───────────╮
@@ -245,9 +253,32 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │           │  INS       │  PSCR     │  CAPS     │           │           │
     &none       &kp F1      &kp F2      &kp F3      &kp F4      &trans      &trans            &trans      &trans      &kp INS      &kp PSCRN   &kp CAPS    &trans      &trans 
 //╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼     ├───────────┼───────────┼────────────┼───────────┼───────────┼───────────┴───────────╯
-//                        │           │           │           │           │  BASE     │     │  BASE     │           │            │           │           │
-                            &none        &trans     &trans      &trans      BASE_LSHFT        BASE_RSHFT  &trans      &trans       &trans      &trans    
+//                        │           │           │           │           │  SHIFT    │     │  NAV/NUM  │           │            │           │           │
+                            &none        &trans     &trans      &trans      &kp LSHFT         NAV_NUM     &trans      &trans       &trans      &trans    
 //                        ╰───────────┴───────────┴───────────┴───────────┴───────────╯     ╰───────────┴───────────┴────────────┴───────────┴───────────╯
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        num {
+            bindings = <
+//╭──────────┬──────────┬───────────┬────────────┬────────────┬──────────╮                           ╭──────────┬──────────┬───────────┬──────────┬──────────┬──────────╮
+//│          │  F1      │  F2       │  F3        │  F4        │  F5      │                           │  F6      │  F7      │  F8       │  F9      │  F10     │  F11     │
+    &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &kp F11      
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  /       │  7        │  8         │  9         │  -       │                           │          │  ! %     │  @ ^      │  # &     │  $ *     │  F12     │
+    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &trans     &excl_pct  &at_caret   &hash_amp  &dlr_star  &kp F12      
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  *       │  4        │  5         │  6         │  +       │                           │          │  ( )     │  [ ]      │  { }     │  ' "     │  < >     │
+    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &trans     &round     &square     &curly     &kp APOS   &angled  
+//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
+//│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │          │  - _     │  = +      │  \ |     │  ` ~     │          │
+    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &trans     &kp MINUS  &kp EQUAL   &kp BSLH   &kp GRAVE  &trans
+//╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼───────────┼──────────┼──────────┴──────────╯
+//                      │           │  SPACE     │  .         │          │  SHIFT   │     │  NUM     │          │          │           │          │
+                          &none       &kp SPACE    &kp DOT      &trans     &kp LSHFT        NUM_SHFT   &trans     &trans     &trans      &trans
+//                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
