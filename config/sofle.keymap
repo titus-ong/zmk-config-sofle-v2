@@ -250,7 +250,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
     &trans      &trans        &trans        &trans        &trans        &trans        &trans           &trans     &trans     &trans       &trans       &trans     &trans     &trans
 //╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
 //                          │             │   GUI       │             │  BK/CTRL    │          │     │          │          │            │            │          │
-                              &trans        &kp LGUI      &trans        &BK_CTRL      &trans           &trans     &trans     &trans       &trans       &trans
+                              &trans        &kp LGUI      &trans        BK_CTRL       &trans           &trans     &trans     &trans       &trans       &trans
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 
