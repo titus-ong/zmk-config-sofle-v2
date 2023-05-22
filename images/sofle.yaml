@@ -19,6 +19,67 @@ layers:
     - {t: DEL, h: nav}
     - {t: RET, h: num}
   - [SPACE, RALT, RCTRL, RGUI]
+  win:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - LGUI
+    - {t: ▽, type: trans}
+    - {t: BSPC, h: LCTRL}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
   nav:
   - - ''
     - {t: ▽, type: trans}
@@ -78,42 +139,45 @@ layers:
     - {t: ▽, type: trans}
   cfg:
   - ['', BT 0, BT 1, BT 2, BT 3, BT 4, '', '', '', '', '', '', '', BT CLR]
-  - ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  - ['', '', '', '', '', '', '', '', '', '', '', win, base, '']
   - ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
   - ['', '', '', '', '', '', '', '', '', RESET, BOOT, '', '', '']
   - ['', BOOT, RESET, '']
 combos:
 - p: [16, 15]
   k: TAB
+  l: [base, win, nav, num]
 - p: [15, 14]
   k: ⇧TAB
+  l: [base, win, nav, num]
 - p: [14, 13]
   k: ESC
+  l: [base, win, nav, num]
 - p: [32, 33]
   k: 'CAPS
 
     WORD'
-  l: [base]
+  l: [base, win]
 - p: [27, 26]
   k: 'NUM
 
     WORD'
-  l: [base]
+  l: [base, win]
 - p: [28, 27]
   k: ⇧
-  l: [base, nav, num]
+  l: [base, win, nav, num]
 - p: [39, 38]
   k: {t: ⇧, h: sticky}
-  l: [base, nav, num]
+  l: [base, win, nav, num]
 - p: [31, 32]
   k: ⇧
-  l: [base, nav, num]
+  l: [base, win, nav, num]
 - p: [2, 1]
   k: cfg
-  l: [base, nav, num]
+  l: [base, win, nav, num]
 - p: [9, 10]
   k: cfg
-  l: [base, nav, num]
+  l: [base, win, nav, num]
 - p: [38, 37]
   k: base
   l: [nav, num, cfg]
@@ -122,10 +186,10 @@ combos:
   l: [nav, num, cfg]
 - p: [26, 25]
   k: nav
-  l: [base, nav]
+  l: [base, win, nav]
 - p: [45, 46]
   k: nav
-  l: [base, nav]
+  l: [base, win, nav]
 - p: [40, 39]
   k: num
-  l: [base, num]
+  l: [base, win, num]

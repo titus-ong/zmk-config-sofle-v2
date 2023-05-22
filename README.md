@@ -59,6 +59,5 @@ You can run `images/gen.sh` to see the generated keymap. Run `hooks/install.sh` 
 
 ## Todo
 
-- Win layer
 - Find useful encoder functions (e.g. moving by words).
 - Multimeter to fix my left split keys.

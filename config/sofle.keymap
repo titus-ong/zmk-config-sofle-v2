@@ -12,9 +12,10 @@
 
 // layer shortcuts, must match order in which they are defined below
 #define BASE 0
-#define NAV 1
-#define NUM 2
-#define CFG 3
+#define WIN 1
+#define NAV 2
+#define NUM 3
+#define CFG 4
 
 // Behaviours
 #define TAPPING_TERM_MS 280
@@ -29,6 +30,7 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 #define BK_GUI &hold_kp LGUI BSPC
+#define BK_CTRL &hold_kp LCTRL BSPC
 
 ZMK_BEHAVIOR(tap_layer, hold_tap,
     flavor = "hold-preferred";
@@ -106,65 +108,68 @@ ZMK_BEHAVIOR(angled, mod_morph,
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LT1 LT2>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&kp TAB>;
         };
         combo_shift_tab {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LT2 LT3>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&kp LS(TAB)>;
         };
         combo_esc {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LT3 LT4>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&kp ESC>;
         };
         combo_caps_word {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RM2 RM3>;
-            layers = <BASE>;
+            layers = <BASE WIN>;
             bindings = <&caps_word>;
         };
         combo_num_word {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LM2 LM3>;
-            layers = <BASE>;
+            layers = <BASE WIN>;
             bindings = <&num_word>;
         };
         combo_lshift {
             timeout-ms = <combo_timeout>;
             key-positions = <LM1 LM2>;
-            layers = <BASE NAV NUM>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&kp LSHIFT>;
         };
         combo_sticky_lshift {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB2 LB3>;
-            layers = <BASE NAV NUM>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&sk LSHIFT>;
         };
         combo_rshift {
             timeout-ms = <combo_timeout>;
             key-positions = <RM1 RM2>;
-            layers = <BASE NAV NUM>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&kp RSHIFT>;
         };
         combo_LCFG {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LN3 LN4>;
-            layers = <BASE NAV NUM>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&tog CFG>;
         };
         combo_RCFG {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RN3 RN4>;
-            layers = <BASE NAV NUM>;
+            layers = <BASE WIN NAV NUM>;
             bindings = <&tog CFG>;
         };
         combo_LBASE {
@@ -185,21 +190,21 @@ ZMK_BEHAVIOR(angled, mod_morph,
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LM3 LM4>;
-            layers = <BASE NAV>;
+            layers = <BASE WIN NAV>;
             bindings = <&tog NAV>;
         };
         combo_RNAV {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RB1 RB2>;
-            layers = <BASE NAV>;
+            layers = <BASE WIN NAV>;
             bindings = <&tog NAV>;
         };
         combo_NUM {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB1 LB2>;
-            layers = <BASE NUM>;
+            layers = <BASE WIN NUM>;
             bindings = <&tog NUM>;
         };
     };
@@ -224,6 +229,29 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NAV │     │  ENTER/NUM│  SPACE   │  ALT     │  CTRL    │  GUI     │
                           &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NAV          RET_NUM     &kp SPACE    &kp RALT   &kp RCTRL  &kp RGUI
 //                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        win {
+            bindings = <
+//╭───────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                           ╭──────────┬────────────┬────────────┬──────────┬──────────┬──────────╮
+//│           │             │             │             │             │             │                           │          │            │            │          │          │          │
+    &trans      &trans        &trans        &trans        &trans        &trans                                    &trans     &trans       &trans       &trans     &trans     &trans     
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                           ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │             │             │             │             │             │                           │          │            │            │          │          │          │
+    &trans      &trans        &trans        &trans        &trans        &trans                                    &trans     &trans       &trans       &trans     &trans     &trans       
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                           ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │             │             │             │             │             │                           │          │            │            │          │          │          │
+    &trans      &trans        &trans        &trans        &trans        &trans                                    &trans     &trans       &trans       &trans     &trans     &trans    
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤──────────╮     ╭──────────┼──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │             │             │             │             │             │          │     │          │          │            │            │          │          │          │
+    &trans      &trans        &trans        &trans        &trans        &trans        &trans           &trans     &trans     &trans       &trans       &trans     &trans     &trans
+//╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
+//                          │             │   GUI       │             │  BK/CTRL    │          │     │          │          │            │            │          │
+                              &trans        &kp LGUI      &trans        &BK_CTRL      &trans           &trans     &trans     &trans       &trans       &trans
+//                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -285,13 +313,13 @@ ZMK_BEHAVIOR(angled, mod_morph,
     &none       &bt BT_CLR    &none         &none         &none         &none                                     &none      &none        &none        &none      &none      &none        
 //├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                           ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
 //│           │             │             │             │             │             │                           │          │            │            │          │          │          │
-    &none       &none         &none         &none         &none         &none                                     &none      &none        &none        &none      &none      &none     
+    &none       &to WIN       &to BASE      &none         &none         &none                                     &none      &none        &none        &none      &none      &none     
 //├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤──────────╮     ╭──────────┼──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
 //│           │             │             │             │             │             │          │     │          │          │            │            │          │          │          │
     &none       &none         &none         &none         &none         &none         &none            &none      &none      &none        &none        &none      &none      &none 
 //╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
-//                          │             │   RESET     │  BOOTLDR    │             │          │     │          │          │  BOOTLDR   │  RESET     │          │
-                              &none          &sys_reset   &bootloader   &none         &none            &none      &none      &bootloader  &sys_reset   &none 
+//                          │             │  RESET      │  BOOTLDR    │             │          │     │          │          │  BOOTLDR   │  RESET     │          │
+                              &none         &sys_reset    &bootloader   &none         &none            &none      &none      &bootloader  &sys_reset   &none 
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 
