@@ -31,6 +31,19 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
 )
 #define BK_GUI &hold_kp LGUI BSPC
 #define BK_CTRL &hold_kp LCTRL BSPC
+#define SPC_GUI &hold_kp RGUI SPACE
+#define SPC_CTRL &hold_kp RCTRL SPACE
+
+
+ZMK_BEHAVIOR(tap_repeat, hold_tap,
+    flavor = "hold-preferred";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    global-quick-tap;
+    bindings = <&kp>, <&key_repeat>;
+)
+#define RP_LALT &tap_repeat LALT
+#define RP_RALT &tap_repeat RALT
 
 ZMK_BEHAVIOR(tap_layer, hold_tap,
     flavor = "hold-preferred";
@@ -226,8 +239,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
     &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
 //╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
-//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NAV │     │  ENTER/NUM│  SPACE   │  ALT     │  CTRL    │  GUI     │
-                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NAV          RET_NUM     &kp SPACE    &kp RALT   &kp RCTRL  &kp RGUI
+//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NAV │     │  ENTER/NUM│  SPC/GUI │  ALT     │  CTRL    │          │
+                          &none      &kp LCTRL  RP_LALT    BK_GUI     DEL_NAV          RET_NUM     SPC_GUI    RP_RALT    &kp RCTRL  &none
 //                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
@@ -249,8 +262,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│           │             │             │             │             │             │          │     │          │          │            │            │          │          │          │
     &trans      &trans        &trans        &trans        &trans        &trans        &trans           &trans     &trans     &trans       &trans       &trans     &trans     &trans
 //╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
-//                          │             │   GUI       │             │  BK/CTRL    │          │     │          │          │            │            │          │
-                              &trans        &kp LGUI      &trans        BK_CTRL       &trans           &trans     &trans     &trans       &trans       &trans
+//                          │             │   GUI       │             │  BK/CTRL    │          │     │          │  SPC/CTRL│            │  GUI       │          │
+                              &trans        &kp LGUI      &trans        BK_CTRL       &trans           &trans     SPC_CTRL   &trans       &kp RGUI     &trans
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 

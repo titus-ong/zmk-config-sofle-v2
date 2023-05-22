@@ -14,11 +14,14 @@ layers:
     - ''
     - ''
     - LCTRL
-    - LALT
+    - {t: REPEAT, h: LALT}
     - {t: BSPC, h: LGUI}
     - {t: DEL, h: nav}
     - {t: RET, h: num}
-  - [SPACE, RALT, RCTRL, RGUI]
+  - - {t: SPACE, h: RGUI}
+    - {t: REPEAT, h: RALT}
+    - RCTRL
+    - ''
   win:
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -76,9 +79,9 @@ layers:
     - {t: BSPC, h: LCTRL}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  - - {t: ▽, type: trans}
+  - - {t: SPACE, h: RCTRL}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - RGUI
     - {t: ▽, type: trans}
   nav:
   - - ''
