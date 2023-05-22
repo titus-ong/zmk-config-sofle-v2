@@ -34,16 +34,15 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
 #define SPC_GUI &hold_kp RGUI SPACE
 #define SPC_CTRL &hold_kp RCTRL SPACE
 
-
 ZMK_BEHAVIOR(tap_repeat, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
-    bindings = <&kp>, <&key_repeat>;
+    bindings = <&kp>, <&kp>;
 )
-#define RP_LALT &tap_repeat LALT
-#define RP_RALT &tap_repeat RALT
+#define RP_LALT &tap_repeat LALT key_repeat
+#define RP_RALT &tap_repeat RALT key_repeat
 
 ZMK_BEHAVIOR(tap_layer, hold_tap,
     flavor = "hold-preferred";
