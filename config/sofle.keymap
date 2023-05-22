@@ -39,7 +39,7 @@ ZMK_BEHAVIOR(tap_repeat, hold_tap,
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
-    bindings = <&kp>, <&kp>;
+    bindings = <&kp>, <&key_repeat>;
 )
 #define RP_LALT &tap_repeat LALT key_repeat
 #define RP_RALT &tap_repeat RALT key_repeat
