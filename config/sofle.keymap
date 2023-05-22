@@ -31,8 +31,16 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
 )
 #define BK_GUI &hold_kp LGUI BSPC
 #define BK_CTRL &hold_kp LCTRL BSPC
-#define SPC_GUI &hold_kp RGUI SPACE
-#define SPC_CTRL &hold_kp RCTRL SPACE
+
+ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    global-quick-tap;
+    bindings = <&kp>, <&kp>;
+)
+#define SPC_GUI &hold_kp_bal RGUI SPACE
+#define SPC_CTRL &hold_kp_bal RCTRL SPACE
 
 ZMK_BEHAVIOR(rpt, hold_tap,
     flavor = "hold-preferred";
