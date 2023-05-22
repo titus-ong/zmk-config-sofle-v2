@@ -201,7 +201,8 @@ parse_config:
     "&curly": "} {"
     "&angled": "> <"
     "&kp LS(TAB)": "⇧TAB"
-    "&kp key_repeat": "REPEAT"
+    "&rpt LALT 0": {"tap": "REPEAT", "hold": "LALT"}
+    "&rpt RALT 0": {"tap": "REPEAT", "hold": "RALT"}
   skip_binding_parsing: false
   sticky_label: sticky
   trans_legend:

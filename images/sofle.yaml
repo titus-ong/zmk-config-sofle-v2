@@ -14,12 +14,12 @@ layers:
     - ''
     - ''
     - LCTRL
-    - {t: key repeat, h: LALT}
+    - {t: REPEAT, h: LALT}
     - {t: BSPC, h: LGUI}
     - {t: DEL, h: nav}
     - {t: RET, h: num}
   - - {t: SPACE, h: RGUI}
-    - {t: key repeat, h: RALT}
+    - {t: REPEAT, h: RALT}
     - RCTRL
     - ''
   win:
