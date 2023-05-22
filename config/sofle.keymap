@@ -39,7 +39,7 @@ ZMK_BEHAVIOR(tap_layer, hold_tap,
 )
 #define BASE_LSHFT &tap_layer LSHFT BASE
 #define BASE_RSHFT &tap_layer RSHFT BASE
-#define NUM_SHFT &tap_layer LSHFT NUM
+#define NUM_SHFT &tap_layer RSHFT NUM
 
 ZMK_BEHAVIOR(hold_layer, hold_tap,
     flavor = "hold-preferred";
@@ -48,17 +48,8 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     global-quick-tap;
     bindings = <&mo>, <&kp>;
 )
-#define DEL_NUM &hold_layer NUM DEL
-#define RET_NAV &hold_layer NAV RET
-
-ZMK_BEHAVIOR(both_layer, hold_tap,
-    flavor = "hold-preferred";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
-    bindings = <&mo>, <&tog>;
-)
-#define NAV_NUM &both_layer NUM NAV
+#define DEL_NAV &hold_layer NAV DEL
+#define RET_NUM &hold_layer NUM RET
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
@@ -230,8 +221,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
     &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
 //╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
-//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPACE   │  ALT     │  CTRL    │  GUI     │
-                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NUM          RET_NAV     &kp SPACE    &kp RALT   &kp RCTRL  &kp RGUI
+//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NAV │     │  ENTER/NUM│  SPACE   │  ALT     │  CTRL    │  GUI     │
+                          &none      &kp LCTRL  &kp LALT   BK_GUI     DEL_NAV          RET_NUM     &kp SPACE    &kp RALT   &kp RCTRL  &kp RGUI
 //                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
@@ -253,8 +244,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │           │  INS       │  PSCR     │  CAPS     │           │           │
     &none       &kp F1      &kp F2      &kp F3      &kp F4      &none       &trans            &trans      &none       &kp INS      &kp PSCRN   &kp CAPS    &trans      &none  
 //╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼     ├───────────┼───────────┼────────────┼───────────┼───────────┼───────────┴───────────╯
-//                        │           │           │           │           │  SHIFT    │     │  NAV/NUM  │           │            │           │           │
-                            &none        &trans     &trans      &trans      &kp LSHFT         NAV_NUM     &trans      &trans       &trans      &trans    
+//                        │           │           │           │           │  DEL      │     │           │           │            │           │           │
+                            &none        &trans     &trans      &trans      &kp DEL           &trans      &trans      &trans       &trans      &trans    
 //                        ╰───────────┴───────────┴───────────┴───────────┴───────────╯     ╰───────────┴───────────┴────────────┴───────────┴───────────╯
             >;
 
@@ -276,8 +267,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │          │  - _     │  = +      │  \ |     │  ` ~     │          │
     &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &none      &kp MINUS  &kp EQUAL   &kp BSLH   &kp GRAVE  &none 
 //╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼───────────┼──────────┼──────────┴──────────╯
-//                      │           │  SPACE     │  .         │          │  SHIFT   │     │  NUM     │          │          │           │          │
-                          &none       &kp SPACE    &kp DOT      &trans     &kp LSHFT        NUM_SHFT   &trans     &trans     &trans      &trans
+//                      │           │  SPACE     │  .         │          │  DEL     │     │  RET     │          │          │           │          │
+                          &none       &kp SPACE    &kp DOT      &trans     &kp DEL          &kp RET    &trans     &trans     &trans      &trans
 //                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
             >;
 
@@ -299,8 +290,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│           │             │             │             │             │             │          │     │          │          │            │            │          │          │          │
     &none       &none         &none         &none         &none         &none         &none            &none      &none      &none        &none        &none      &none      &none 
 //╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
-//                          │             │   RESET     │  BOOTLDR    │             │  BASE    │     │  BASE    │          │  BOOTLDR   │  RESET     │          │
-                              &none          &sys_reset   &bootloader   &none         BASE_LSHFT       BASE_RSHFT &none      &bootloader  &sys_reset   &none 
+//                          │             │   RESET     │  BOOTLDR    │             │          │     │          │          │  BOOTLDR   │  RESET     │          │
+                              &none          &sys_reset   &bootloader   &none         &none            &none      &none      &bootloader  &sys_reset   &none 
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 

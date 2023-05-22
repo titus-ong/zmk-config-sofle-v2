@@ -1,4 +1,4 @@
-<svg width="984.0" height="1568.0" viewBox="0 0 984.0 1568.0" class="keymap" xmlns="http://www.w3.org/2000/svg">
+<svg width="984.0" height="1568.0" viewBox="0 0 984.0 1568.0" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style>/* inherit to force styles through use tags*/
 svg path {
     fill: inherit;
@@ -195,10 +195,10 @@ path.combo {
 <text x="310.0" y="346.0" class="hold">LGUI</text>
 <rect rx="6.0" ry="6.0" x="368.0" y="296.0" width="52.0" height="80.0" class="key"/>
 <text x="394.0" y="336.0" class="tap">DEL</text>
-<text x="394.0" y="374.0" class="hold">num</text>
+<text x="394.0" y="374.0" class="hold">nav</text>
 <rect rx="6.0" ry="6.0" x="564.0" y="296.0" width="52.0" height="80.0" class="key"/>
 <text x="590.0" y="336.0" class="tap">RET</text>
-<text x="590.0" y="374.0" class="hold">nav</text>
+<text x="590.0" y="374.0" class="hold">num</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="296.0" width="52.0" height="52.0" class="key"/>
 <text x="674.0" y="322.0" class="tap">SPACE</text>
 <rect rx="6.0" ry="6.0" x="704.0" y="290.40000000000003" width="52.0" height="52.0" class="key"/>
@@ -338,9 +338,10 @@ path.combo {
 <text x="254.0" y="694.4000000000001" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="284.0" y="674.0" width="52.0" height="52.0" class="trans key"/>
 <text x="310.0" y="700.0" class="trans tap">▽</text>
-<rect rx="6.0" ry="6.0" x="368.0" y="674.0" width="52.0" height="80.0" class="key"/>
-<text x="394.0" y="714.0" class="tap">LSHIFT</text>
-<rect rx="6.0" ry="6.0" x="564.0" y="674.0" width="52.0" height="80.0" class="held key"/>
+<rect rx="6.0" ry="6.0" x="368.0" y="674.0" width="52.0" height="80.0" class="held key"/>
+<text x="394.0" y="714.0" class="held tap">DEL</text>
+<rect rx="6.0" ry="6.0" x="564.0" y="674.0" width="52.0" height="80.0" class="trans key"/>
+<text x="590.0" y="714.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="674.0" width="52.0" height="52.0" class="trans key"/>
 <text x="674.0" y="700.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="704.0" y="668.4000000000001" width="52.0" height="52.0" class="trans key"/>
@@ -490,10 +491,10 @@ path.combo {
 <text x="254.0" y="1072.4" class="tap">.</text>
 <rect rx="6.0" ry="6.0" x="284.0" y="1052.0" width="52.0" height="52.0" class="trans key"/>
 <text x="310.0" y="1078.0" class="trans tap">▽</text>
-<rect rx="6.0" ry="6.0" x="368.0" y="1052.0" width="52.0" height="80.0" class="held key"/>
-<rect rx="6.0" ry="6.0" x="564.0" y="1052.0" width="52.0" height="80.0" class="key"/>
-<text x="590.0" y="1092.0" class="tap">2</text>
-<text x="590.0" y="1130.0" class="hold">LSHIFT</text>
+<rect rx="6.0" ry="6.0" x="368.0" y="1052.0" width="52.0" height="80.0" class="key"/>
+<text x="394.0" y="1092.0" class="tap">DEL</text>
+<rect rx="6.0" ry="6.0" x="564.0" y="1052.0" width="52.0" height="80.0" class="held key"/>
+<text x="590.0" y="1092.0" class="held tap">RET</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="1052.0" width="52.0" height="52.0" class="trans key"/>
 <text x="674.0" y="1078.0" class="trans tap">▽</text>
 <rect rx="6.0" ry="6.0" x="704.0" y="1046.4" width="52.0" height="52.0" class="trans key"/>
@@ -597,11 +598,7 @@ path.combo {
 <text x="254.0" y="1450.4" class="tap">BOOT</text>
 <rect rx="6.0" ry="6.0" x="284.0" y="1430.0" width="52.0" height="52.0" class="key"/>
 <rect rx="6.0" ry="6.0" x="368.0" y="1430.0" width="52.0" height="80.0" class="key"/>
-<text x="394.0" y="1470.0" class="tap">0</text>
-<text x="394.0" y="1508.0" class="hold">LSHIFT</text>
 <rect rx="6.0" ry="6.0" x="564.0" y="1430.0" width="52.0" height="80.0" class="key"/>
-<text x="590.0" y="1470.0" class="tap">0</text>
-<text x="590.0" y="1508.0" class="hold">RSHIFT</text>
 <rect rx="6.0" ry="6.0" x="648.0" y="1430.0" width="52.0" height="52.0" class="key"/>
 <rect rx="6.0" ry="6.0" x="704.0" y="1424.4" width="52.0" height="52.0" class="key"/>
 <text x="730.0" y="1450.4" class="tap">BOOT</text>

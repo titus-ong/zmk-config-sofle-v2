@@ -4,7 +4,7 @@
 
 ![keymap](images/sofle.svg "Sofle keymap")
 
-## Use Cases
+## Key Considerations
 
 ### Left handed only
 
@@ -13,8 +13,7 @@ I tend to rest my left hand on my keyboard and right hand on my trackpad/mouse a
 1. Shortcuts
    - Application switching, copy-pasting, saving, refreshing pages, and other shortcuts that use GUI (Mac) / Ctrl or Alt (Win)
 2. Numbers
-   - Dates, OTPs, account numbers etc.
-   - Primarily activated through held outer thumb key or NAV layer combo
+   - Dates, OTPs, account numbers etc. through NAV layer combo (if typing lots of numbers) or Num Word
 3. Function keys
    - Refreshing, debugging (F7-F10)
 
@@ -22,7 +21,7 @@ The sticky shift combo is useful for any chording that requires shift.
 
 ### General typing
 
-The Shift combos on both sides with num word combo are for capitalisation and typing numbers.
+The Shift combos on both sides with the Num Word combo are for capitalisation and typing numbers.
 
 ### Programming
 
@@ -33,9 +32,9 @@ Programming requires more specific syntax:
 2. Quotes, && ||, and other symbols
    - These are on the NUM layer on the right side, primarily accessed through holding the left outer thumb key. I may consider reordering them for easier access to the more common symbols
 3. Navigating code
-   - Navigation is on the NAV layer on the right side, primarily accessed through holding the right outer thumb key
+   - Navigation is on the NAV layer on the right side, primarily accessed through holding the left outer thumb key or the NAV combos for long term navigation
 4. ALL CAPS
-   - Use cases are constants and SQL statements. Caps word is good for this
+   - Use cases are constants and SQL statements. Caps Word is good for this
 
 ### Quick access
 
