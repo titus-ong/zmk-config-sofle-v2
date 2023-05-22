@@ -43,7 +43,7 @@ ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
 #define SPC_CTRL &hold_kp_bal RCTRL SPACE
 
 ZMK_BEHAVIOR(rpt, hold_tap,
-    flavor = "hold-preferred";
+    flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     global-quick-tap;
@@ -51,17 +51,6 @@ ZMK_BEHAVIOR(rpt, hold_tap,
 )
 #define RPT_LALT &rpt LALT 0
 #define RPT_RALT &rpt RALT 0
-
-ZMK_BEHAVIOR(tap_layer, hold_tap,
-    flavor = "hold-preferred";
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
-    bindings = <&kp>, <&to>;
-)
-#define BASE_LSHFT &tap_layer LSHFT BASE
-#define BASE_RSHFT &tap_layer RSHFT BASE
-#define NUM_SHFT &tap_layer RSHFT NUM
 
 ZMK_BEHAVIOR(hold_layer, hold_tap,
     flavor = "hold-preferred";
