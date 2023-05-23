@@ -16,8 +16,8 @@ layers:
     - LCTRL
     - {t: REPEAT, h: LALT}
     - {t: BSPC, h: LGUI}
-    - {t: DEL, h: nav}
-    - {t: RET, h: num}
+    - {t: DEL, h: num}
+    - {t: RET, h: nav}
   - - {t: SPACE, h: RGUI}
     - {t: REPEAT, h: RALT}
     - RCTRL
@@ -112,8 +112,8 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: DEL, type: held}
-    - {t: ▽, type: trans}
+    - DEL
+    - {type: held}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -134,8 +134,8 @@ layers:
     - SPACE
     - .
     - {t: ▽, type: trans}
-    - DEL
-    - {t: RET, type: held}
+    - {t: DEL, type: held}
+    - RET
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}

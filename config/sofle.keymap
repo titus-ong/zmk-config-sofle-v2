@@ -59,8 +59,8 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     global-quick-tap;
     bindings = <&mo>, <&kp>;
 )
-#define DEL_NAV &hold_layer NAV DEL
-#define RET_NUM &hold_layer NUM RET
+#define DEL_NUM &hold_layer NUM DEL
+#define RET_NAV &hold_layer NAV RET
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
@@ -108,7 +108,9 @@ ZMK_BEHAVIOR(angled, mod_morph,
 };
 
 #define combo_timeout 30
+#define combo_timeout_long 60
 #define combo_global_quick_tap 150
+#define combo_global_quick_tap_long 300
 
 / {
     combos {
@@ -149,20 +151,20 @@ ZMK_BEHAVIOR(angled, mod_morph,
             bindings = <&num_word>;
         };
         combo_lshift {
-            timeout-ms = <combo_timeout>;
+            timeout-ms = <combo_timeout_long>;
             key-positions = <LM1 LM2>;
             layers = <BASE WIN NAV NUM>;
             bindings = <&kp LSHIFT>;
         };
         combo_sticky_lshift {
-            timeout-ms = <combo_timeout>;
+            timeout-ms = <combo_timeout_long>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LB2 LB3>;
             layers = <BASE WIN NAV NUM>;
             bindings = <&sk LSHIFT>;
         };
         combo_rshift {
-            timeout-ms = <combo_timeout>;
+            timeout-ms = <combo_timeout_long>;
             key-positions = <RM1 RM2>;
             layers = <BASE WIN NAV NUM>;
             bindings = <&kp RSHIFT>;
@@ -197,7 +199,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
         };
         combo_LNAV {
             timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap>;
+            global-quick-tap-ms = <combo_global_quick_tap_long>;
             key-positions = <LM3 LM4>;
             layers = <BASE WIN NAV>;
             bindings = <&tog NAV>;
@@ -235,8 +237,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
     &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
 //╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
-//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NAV │     │  ENTER/NUM│  SPC/GUI │  ALT     │  CTRL    │          │
-                          &none      &kp LCTRL  RPT_LALT   BK_GUI     DEL_NAV          RET_NUM     SPC_GUI    RPT_RALT   &kp RCTRL  &none
+//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPC/GUI │  ALT     │  CTRL    │          │
+                          &none      &kp LCTRL  RPT_LALT   BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    RPT_RALT   &kp RCTRL  &none
 //                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
