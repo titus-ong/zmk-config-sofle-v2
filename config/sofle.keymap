@@ -138,6 +138,12 @@ ZMK_BEHAVIOR(angled, mod_morph,
             layers = <BASE WIN>;
             bindings = <&caps_word>;
         };
+        combo_caps_lock {
+            timeout-ms = <combo_timeout>;
+            key-positions = <RM3 RM4>;
+            layers = <BASE WIN>;
+            bindings = <&kp CAPS>;
+        };
         combo_num_word {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
