@@ -26,7 +26,6 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
     bindings = <&kp>, <&kp>;
 )
 #define BK_GUI &hold_kp LGUI BSPC
@@ -36,7 +35,6 @@ ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
     bindings = <&kp>, <&kp>;
 )
 #define SPC_GUI &hold_kp_bal RGUI SPACE
@@ -46,7 +44,6 @@ ZMK_BEHAVIOR(rpt, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
     bindings = <&kp>, <&key_repeat>;
 )
 #define RPT_LALT &rpt LALT 0
@@ -56,7 +53,6 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
     flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    global-quick-tap;
     bindings = <&mo>, <&kp>;
 )
 #define DEL_NUM &hold_layer NUM DEL
