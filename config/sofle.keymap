@@ -143,7 +143,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <LM2 LM3>;
-            layers = <BASE WIN>;
+            layers = <BASE WIN NUM>;
             bindings = <&num_word>;
         };
         combo_lshift {
