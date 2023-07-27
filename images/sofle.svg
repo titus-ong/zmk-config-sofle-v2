@@ -189,8 +189,8 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="172.0" y="289.0" width="52.0" height="52.0" class="key"/>
 <text x="198.0" y="315.0" class="tap">LCTRL</text>
 <rect rx="6.0" ry="6.0" x="228.0" y="290.40000000000003" width="52.0" height="52.0" class="key"/>
-<text x="254.0" y="316.40000000000003" class="tap">0</text>
-<text x="254.0" y="340.40000000000003" class="hold">LALT</text>
+<text x="254.0" y="316.40000000000003" class="tap">REPEAT</text>
+<text x="254.0" y="340.40000000000003" class="hold">LALTNAV</text>
 <rect rx="6.0" ry="6.0" x="284.0" y="296.0" width="52.0" height="52.0" class="key"/>
 <text x="310.0" y="322.0" class="tap">BSPC</text>
 <text x="310.0" y="346.0" class="hold">LGUI</text>

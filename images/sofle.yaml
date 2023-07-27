@@ -14,7 +14,7 @@ layers:
     - ''
     - ''
     - LCTRL
-    - {t: '0', h: LALT}
+    - {t: REPEAT, h: LALTNAV}
     - {t: BSPC, h: LGUI}
     - {t: DEL, h: num}
     - {t: RET, h: nav}

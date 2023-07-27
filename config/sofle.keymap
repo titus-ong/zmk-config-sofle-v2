@@ -24,6 +24,7 @@
 // Tap dance
 ZMK_BEHAVIOR(rpt_nav, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
+    #binding-cells = <0>;
     bindings = <&key_repeat 0>, <&mo NAV>;
 )
 
@@ -58,6 +59,7 @@ ZMK_BEHAVIOR(lalt_rpt_nav, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
+    #binding-cells = <2>;
     bindings = <&kp>, <&kp &rpt_nav>;
 )
 #define NAV_RPT_LALT &lalt_rpt_nav LALT 0
