@@ -140,13 +140,13 @@ ZMK_BEHAVIOR(angled, mod_morph,
             bindings = <&kp ESC>;
         };
         combo_caps_word {
-            timeout-ms = <combo_timeout>;
+            timeout-ms = <combo_timeout_long>;
             key-positions = <RM2 RM3>;
             layers = <BASE WIN>;
             bindings = <&caps_word>;
         };
         combo_caps_lock {
-            timeout-ms = <combo_timeout>;
+            timeout-ms = <combo_timeout_long>;
             key-positions = <RM3 RM4>;
             layers = <BASE WIN>;
             bindings = <&kp CAPS>;
