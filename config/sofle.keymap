@@ -134,7 +134,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
         };
         combo_caps_word {
             timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RM2 RM3>;
             layers = <BASE WIN>;
             bindings = <&caps_word>;
