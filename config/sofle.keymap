@@ -21,6 +21,12 @@
 #define TAPPING_TERM_MS 280
 #define QUICK_TAP_MS 50
 
+// Tap dance
+ZMK_BEHAVIOR(rpt_nav, tap_dance,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    bindings = <&key_repeat 0>, <&mo NAV>;
+)
+
 // Hold taps
 ZMK_BEHAVIOR(hold_kp, hold_tap,
     flavor = "hold-preferred";
@@ -48,6 +54,14 @@ ZMK_BEHAVIOR(rpt, hold_tap,
 )
 #define RPT_RALT &rpt RALT 0
 
+ZMK_BEHAVIOR(lalt_rpt_nav, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp &rpt_nav>;
+)
+#define NAV_RPT_LALT &lalt_rpt_nav LALT 0
+
 ZMK_BEHAVIOR(lalt_rpt, macro,
     bindings = <&rpt LALT 0>;
 )
@@ -60,13 +74,6 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 )
 #define DEL_NUM &hold_layer NUM DEL
 #define RET_NAV &hold_layer NAV RET
-
-// Tap dance
-ZMK_BEHAVIOR(lalt_rpt_nav, tap_dance,
-    tapping-term-ms = <TAPPING_TERM_MS>;
-    bindings = <&lalt_rpt>, <&mo>;
-)
-#define NAV_RPT_LALT &lalt_rpt_nav 0 NAV
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
