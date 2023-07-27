@@ -60,7 +60,6 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 // Tap dance
 ZMK_BEHAVIOR(lalt_rpt_nav, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&rpt LALT 0>, <&hold_layer NAV 0>;
 )
 #define NAV_RPT_LALT &lalt_rpt_nav 0 0
