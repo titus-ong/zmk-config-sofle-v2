@@ -19,7 +19,7 @@
 
 // Behaviours
 #define TAPPING_TERM_MS 280
-#define QUICK_TAP_MS 175
+#define QUICK_TAP_MS 50
 
 // Hold taps
 ZMK_BEHAVIOR(hold_kp, hold_tap,
