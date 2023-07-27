@@ -192,14 +192,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             layers = <BASE NAV NUM CFG>;
             bindings = <&to BASE>;
         };
-        combo_LNAV {
-            timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap_long>;
-            key-positions = <LM3 LM4>;
-            layers = <BASE WIN NAV>;
-            bindings = <&tog NAV>;
-        };
-        combo_RNAV {
+        combo_NAV {
             timeout-ms = <combo_timeout>;
             global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <RB1 RB2>;
