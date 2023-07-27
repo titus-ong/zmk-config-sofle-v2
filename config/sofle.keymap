@@ -62,7 +62,7 @@ ZMK_BEHAVIOR(lalt_rpt_nav, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     bindings = <&rpt LALT 0>, <&mo>;
 )
-#define NAV_RPT_LALT &lalt_rpt_nav NAV
+#define NAV_RPT_LALT &lalt_rpt_nav 0 NAV
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
