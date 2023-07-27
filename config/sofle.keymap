@@ -46,7 +46,6 @@ ZMK_BEHAVIOR(rpt, hold_tap,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&key_repeat>;
 )
-#define RPT_LALT &rpt LALT 0
 #define RPT_RALT &rpt RALT 0
 
 ZMK_BEHAVIOR(hold_layer, hold_tap,
@@ -57,6 +56,14 @@ ZMK_BEHAVIOR(hold_layer, hold_tap,
 )
 #define DEL_NUM &hold_layer NUM DEL
 #define RET_NAV &hold_layer NAV RET
+
+// Tap dance
+ZMK_BEHAVIOR(lalt_rpt_nav, tap_dance,
+    tapping-term-ms = <TAPPING_TERM_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&rpt LALT 0>, <&hold_layer NAV 0>;
+)
+#define NAV_RPT_LALT &lalt_rpt_nav 0 0
 
 // Mod morphs
 ZMK_BEHAVIOR(excl_pct, mod_morph,
@@ -218,22 +225,22 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
         base {
             bindings = <
-//╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮                            ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
-//│          │  1       │  2       │  3       │  4       │  5       │                            │  6       │  7       │  8       │  9       │  0       │          │
-    &none      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none      
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  Q       │  W       │  E       │  R       │  T       │                            │  Y       │  U       │  I       │  O       │  P       │          │
-    &none      &kp Q      &kp W      &kp E      &kp R      &kp T                                   &kp Y      &kp U      &kp I      &kp O      &kp P      &none   
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  A       │  S       │  D       │  F       │  G       │                            │  H       │  J       │  K       │  L       │  ; :     │          │
-    &none      &kp A      &kp S      &kp D      &kp F      &kp G                                   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none 
-//├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤──────────╮     ╭───────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  Z       │  X       │  C       │  V       │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
-    &none      &kp Z      &kp X      &kp C      &kp V      &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none 
-//╰──────────┴──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
-//                      │          │  CTRL    │  ALT     │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPC/GUI │  ALT     │  CTRL    │          │
-                          &none      &kp LCTRL  RPT_LALT   BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    RPT_RALT   &kp RCTRL  &none
-//                      ╰──────────┴──────────┴──────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
+//╭──────────┬──────────┬──────────┬──────────┬─────────────┬──────────╮                            ╭──────────┬──────────┬──────────┬──────────┬──────────┬──────────╮
+//│          │  1       │  2       │  3       │  4          │  5       │                            │  6       │  7       │  8       │  9       │  0       │          │
+    &none      &kp N1     &kp N2     &kp N3     &kp N4        &kp N5                                  &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &none
+//├──────────┼──────────┼──────────┼──────────┼─────────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  Q       │  W       │  E       │  R          │  T       │                            │  Y       │  U       │  I       │  O       │  P       │          │
+    &none      &kp Q      &kp W      &kp E      &kp R         &kp T                                   &kp Y      &kp U      &kp I      &kp O      &kp P      &none
+//├──────────┼──────────┼──────────┼──────────┼─────────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  A       │  S       │  D       │  F          │  G       │                            │  H       │  J       │  K       │  L       │  ; :     │          │
+    &none      &kp A      &kp S      &kp D      &kp F         &kp G                                   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
+//├──────────┼──────────┼──────────┼──────────┼─────────────┼──────────┤──────────╮     ╭───────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
+//│          │  Z       │  X       │  C       │  V          │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
+    &none      &kp Z      &kp X      &kp C      &kp V         &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
+//╰──────────┴──────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼     ├───────────┼──────────┼──────────┼──────────┼──────────┼──────────┴──────────╯
+//                      │          │  CTRL    │  ALT        │  BK/GUI  │  DEL/NUM │     │  ENTER/NAV│  SPC/GUI │  ALT     │  CTRL    │          │
+                          &none      &kp LCTRL  NAV_RPT_LALT      BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    RPT_RALT   &kp RCTRL  &none
+//                      ╰──────────┴──────────┴─────────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
