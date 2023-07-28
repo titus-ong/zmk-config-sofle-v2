@@ -24,7 +24,6 @@
 // Tap dance
 ZMK_BEHAVIOR(rpt_mo, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
-    #binding-cells = <0>;
     bindings = <&key_repeat>, <&mo>;
 )
 #define RPT_NAV &rpt_mo 0 NAV
