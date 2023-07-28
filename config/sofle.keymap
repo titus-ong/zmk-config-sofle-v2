@@ -242,8 +242,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│          │  Q       │  W       │  E       │  R          │  T       │                            │  Y       │  U       │  I       │  O       │  P       │          │
     &none      &kp Q      &kp W      &kp E      &kp R         &kp T                                   &kp Y      &kp U      &kp I      &kp O      &kp P      &none
 //├──────────┼──────────┼──────────┼──────────┼─────────────┼──────────┤                            ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-//│          │  A       │  S       │  D       │  F          │  G       │                            │  H       │  J       │  K       │  L       │  ; :     │          │
-    &none      &kp A      &kp S      &kp D      &kp F         &kp G                                   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &none
+//│          │  A       │  S       │  D       │  F          │  G       │                            │  H       │  J       │  K       │  L       │  ; :     │  ' "     │
+    &none      &kp A      &kp S      &kp D      &kp F         &kp G                                   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp APOS
 //├──────────┼──────────┼──────────┼──────────┼─────────────┼──────────┤──────────╮     ╭───────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
 //│          │  Z       │  X       │  C       │  V          │  B       │  MUTE    │     │           │  N       │  M       │  , <     │  . >     │  /       │          │
     &none      &kp Z      &kp X      &kp C      &kp V         &kp B      &kp C_MUTE       &none       &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &none
