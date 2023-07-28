@@ -25,7 +25,7 @@
 ZMK_BEHAVIOR(rpt_nav, tap_dance,
     tapping-term-ms = <TAPPING_TERM_MS>;
     #binding-cells = <0>;
-    bindings = <&key_repeat 0>, <&mo NAV>;
+    bindings = <&key_repeat>, <&mo NAV>;
 )
 
 // Hold taps
