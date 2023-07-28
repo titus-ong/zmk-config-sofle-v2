@@ -59,7 +59,7 @@ ZMK_BEHAVIOR(lalt_rpt_nav, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&kp &rpt_nav>;
+    bindings = <&kp>, <&rpt_nav>;
 )
 #define NAV_RPT_LALT &lalt_rpt_nav LALT 0
 
