@@ -112,7 +112,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - DEL
+    - LSHIFT
     - {type: held}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -120,11 +120,11 @@ layers:
     - {t: ▽, type: trans}
   num:
   - ['', F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, '', /]
-  - ['7', '8', '9', _ -, '', '% !', ^ @, '& #', '* $', F12, '', '*', '4', '5']
-  - ['6', +, '', ) (, '] [', '} {', '" ''', '> <', '', '0', '1', '2', '3', RET]
+  - ['7', '8', '9', _ -, '&', '% !', ^ @, '& #', '* $', F12, '', '*', '4', '5']
+  - ['6', +, _, ) (, '] [', '} {', '" ''', '> <', '', '0', '1', '2', '3', RET]
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - ''
+    - '|'
     - _ -
     - + =
     - '| \'
@@ -135,7 +135,7 @@ layers:
     - .
     - {t: ▽, type: trans}
     - {t: DEL, type: held}
-    - RET
+    - RSHIFT
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
