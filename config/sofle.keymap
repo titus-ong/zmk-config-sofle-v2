@@ -54,13 +54,13 @@ ZMK_BEHAVIOR(rpt, hold_tap,
 )
 #define RPT_RALT &rpt RALT 0
 
-ZMK_BEHAVIOR(lalt_rpt_nav, hold_tap,
+ZMK_BEHAVIOR(kp_rpt_nav, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&rpt_mo>;
 )
-#define NAV_RPT_LALT &lalt_rpt_nav LALT 0
+#define NAV_RPT_LALT &kp_rpt_nav LALT 0
 
 ZMK_BEHAVIOR(lalt_rpt, macro,
     bindings = <&rpt LALT 0>;
