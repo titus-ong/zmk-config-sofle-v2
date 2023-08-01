@@ -19,7 +19,7 @@
 
 // Behaviours
 #define TAPPING_TERM_MS 280
-#define QUICK_TAP_MS 50
+#define QUICK_TAP_MS 200
 
 // Tap dance
 ZMK_BEHAVIOR(rpt_mo, tap_dance,
