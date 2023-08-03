@@ -252,8 +252,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
                           &none      &kp LCTRL  NAV_RPT_LALT  BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    RPT_RALT   &kp RCTRL  &none
 //                      ╰──────────┴──────────┴─────────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            // seems to have encoder sensitivity issues
+            // sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         win {
