@@ -274,7 +274,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
             sensors {
                 compatible = "zmk,keymap-sensors";
-                sensors = <&my_left_encoder &my_right_encoder>;
+                sensors = <&my_left_encoder>;
                 triggers-per-rotation = <20>;
             };
         };
@@ -301,7 +301,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
             sensors {
                 compatible = "zmk,keymap-sensors";
-                sensors = <&my_left_encoder &my_right_encoder>;
+                sensors = <&my_left_encoder>;
                 triggers-per-rotation = <20>;
             };
         };
@@ -328,7 +328,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
             sensors {
                 compatible = "zmk,keymap-sensors";
-                sensors = <&my_left_encoder &my_right_encoder>;
+                sensors = <&my_left_encoder>;
                 triggers-per-rotation = <20>;
             };
         };
@@ -355,7 +355,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
             sensors {
                 compatible = "zmk,keymap-sensors";
-                sensors = <&my_left_encoder &my_right_encoder>;
+                sensors = <&my_left_encoder>;
                 triggers-per-rotation = <20>;
             };
         };
@@ -382,7 +382,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
             sensors {
                 compatible = "zmk,keymap-sensors";
-                sensors = <&my_left_encoder &my_right_encoder>;
+                sensors = <&my_left_encoder>;
                 triggers-per-rotation = <20>;
             };
         };
