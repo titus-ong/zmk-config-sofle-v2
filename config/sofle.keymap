@@ -236,7 +236,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
             label = "LEFT_ENCODER";
             #sensor-binding-cells = <0>;
-            resolution = <4>;
+            steps = <80>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
         };
 
@@ -244,9 +244,15 @@ ZMK_BEHAVIOR(angled, mod_morph,
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
             label = "RIGHT_ENCODER";
             #sensor-binding-cells = <0>;
-            resolution = <4>;
+            steps = <80>;
             bindings = <&kp PG_UP>, <&kp PG_DN>;
         };
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&my_left_encoder &my_right_encoder>;
+        triggers-per-rotation = <20>;
     };
 
     keymap {
@@ -271,8 +277,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
                           &none      &kp LCTRL  NAV_RPT_LALT  BK_GUI     DEL_NUM          RET_NAV     SPC_GUI    RPT_RALT   &kp RCTRL  &none
 //                      ╰──────────┴──────────┴─────────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
-
-            sensor-bindings = <&my_left_encoder &my_right_encoder>;
         };
 
         win {
@@ -294,8 +298,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
                               &trans        &kp LGUI      &trans        BK_CTRL       &trans           &trans     SPC_CTRL   &trans       &kp RGUI     &trans
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
-            
-            sensor-bindings = <&my_left_encoder &my_right_encoder>;
         };
 
         nav {
@@ -317,8 +319,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
                             &none        &trans     &trans      &trans      &kp LSHFT         &trans      &trans      &trans       &trans      &trans
 //                        ╰───────────┴───────────┴───────────┴───────────┴───────────╯     ╰───────────┴───────────┴────────────┴───────────┴───────────╯
             >;
-            
-            sensor-bindings = <&my_left_encoder &my_right_encoder>;
         };
 
         num {
@@ -340,8 +340,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
                           &none       &kp SPACE    &kp DOT      &trans     &kp DEL          &kp RSHFT  &trans     &trans     &trans      &trans
 //                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
             >;
-            
-            sensor-bindings = <&my_left_encoder &my_right_encoder>;
         };
 
         cfg {
@@ -363,8 +361,6 @@ ZMK_BEHAVIOR(angled, mod_morph,
                               &none         &sys_reset    &bootloader   &none         &none            &none      &none      &bootloader  &sys_reset   &none 
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
-            
-            sensor-bindings = <&my_left_encoder &my_right_encoder>;
         };
     };
 };
