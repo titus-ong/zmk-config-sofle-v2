@@ -232,9 +232,9 @@ ZMK_BEHAVIOR(angled, mod_morph,
     };
 
     behaviors {
-        left_encoder: left_encoder {
+        my_left_encoder: my_left_encoder {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER";
+            label = "LEFT_ENCODER";
             #sensor-binding-cells = <0>;
             bindings = <&inc_dec_kp C_VOL_UP>, <&inc_dec_kp C_VOL_DN>;
         };
@@ -263,7 +263,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                      ╰──────────┴──────────┴─────────────┴──────────┴──────────╯     ╰───────────┴──────────┴──────────┴──────────┴──────────╯
             >;
 
-            sensor-bindings = <&left_encoder>;
+            sensor-bindings = <&my_left_encoder>;
         };
 
         win {
@@ -286,7 +286,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
             
-            sensor-bindings = <&left_encoder>;
+            sensor-bindings = <&my_left_encoder>;
         };
 
         nav {
@@ -309,7 +309,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                        ╰───────────┴───────────┴───────────┴───────────┴───────────╯     ╰───────────┴───────────┴────────────┴───────────┴───────────╯
             >;
             
-            sensor-bindings = <&left_encoder>;
+            sensor-bindings = <&my_left_encoder>;
         };
 
         num {
@@ -332,7 +332,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
             >;
             
-            sensor-bindings = <&left_encoder>;
+            sensor-bindings = <&my_left_encoder>;
         };
 
         cfg {
@@ -355,7 +355,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
             >;
             
-            sensor-bindings = <&left_encoder>;
+            sensor-bindings = <&my_left_encoder>;
         };
     };
 };
