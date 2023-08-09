@@ -236,7 +236,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
             label = "LEFT_ENCODER";
             #sensor-binding-cells = <0>;
-            steps = <80>;
+            steps = <20>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
         };
 
@@ -244,7 +244,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
             label = "RIGHT_ENCODER";
             #sensor-binding-cells = <0>;
-            steps = <80>;
+            steps = <20>;
             bindings = <&kp PG_UP>, <&kp PG_DN>;
         };
     };
