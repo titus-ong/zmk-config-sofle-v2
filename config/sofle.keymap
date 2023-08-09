@@ -236,7 +236,7 @@ ZMK_BEHAVIOR(angled, mod_morph,
             compatible = "zmk,behavior-sensor-rotate";
             label = "LEFT_ENCODER";
             #sensor-binding-cells = <0>;
-            bindings = <&inc_dec_kp C_VOL_UP>, <&inc_dec_kp C_VOL_DN>;
+            bindings = <&inc_dec_kp C_VOL_UP>, <&inc_dec_kp C_VOL_DN>, <&inc_dec_kp PG_UP>, <&inc_dec_kp PG_DN>;
         };
     };
 
