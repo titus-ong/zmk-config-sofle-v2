@@ -29,7 +29,7 @@ ZMK_BEHAVIOR(rpt_mo, tap_dance,
 
 // Hold taps
 ZMK_BEHAVIOR(hold_kp, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
@@ -38,7 +38,7 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
 #define BK_CTRL &hold_kp LCTRL BSPC
 
 ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
@@ -47,7 +47,7 @@ ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
 #define SPC_CTRL &hold_kp_bal RCTRL SPACE
 
 ZMK_BEHAVIOR(rpt, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&key_repeat>;
@@ -55,7 +55,7 @@ ZMK_BEHAVIOR(rpt, hold_tap,
 #define RPT_RALT &rpt RALT 0
 
 ZMK_BEHAVIOR(kp_rpt_nav, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&rpt_mo>;
@@ -67,7 +67,7 @@ ZMK_BEHAVIOR(lalt_rpt, macro,
 )
 
 ZMK_BEHAVIOR(hold_layer, hold_tap,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&kp>;
