@@ -114,6 +114,11 @@ ZMK_BEHAVIOR(rcurly, mod_morph,
     layers = <NUM>;
 };
 
+// Caps word
+&caps_word {
+    continue-list = <UNDERSCORE BACKSPACE DELETE>;
+};
+
 // Sticky shift
 &sk {
     release-after-ms = <2000>;
