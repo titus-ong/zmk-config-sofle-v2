@@ -633,7 +633,8 @@ path.combo {
 <rect rx="6.0" ry="6.0" x="676.0" y="1367.0" width="52.0" height="52.0" class="key"/>
 <text x="702.0" y="1393.0" class="tap">:</text>
 <rect rx="6.0" ry="6.0" x="732.0" y="1360.0" width="52.0" height="52.0" class="key"/>
-<text x="758.0" y="1386.0" class="tap">=</text>
+<text x="758.0" y="1386.0" class="tap">
+<tspan x="758.0" dy="-0.6em">+</tspan><tspan x="758.0" dy="1.2em">=</tspan></text>
 <rect rx="6.0" ry="6.0" x="788.0" y="1367.0" width="52.0" height="52.0" class="key"/>
 <text x="814.0" y="1393.0" class="tap">
 <tspan x="814.0" dy="-0.6em">|</tspan><tspan x="814.0" dy="1.2em">\</tspan></text>
