@@ -37,14 +37,14 @@ ZMK_BEHAVIOR(hold_kp, hold_tap,
 #define BK_GUI &hold_kp LGUI BSPC
 #define BK_CTRL &hold_kp LCTRL BSPC
 
-ZMK_BEHAVIOR(hold_kp_bal, hold_tap,
-    flavor = "hold-preferred";
+ZMK_BEHAVIOR(tap_kp_bal, hold_tap,
+    flavor = "tap-preferred";
     tapping-term-ms = <TAPPING_TERM_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
 )
-#define SPC_GUI &hold_kp_bal RGUI SPACE
-#define SPC_CTRL &hold_kp_bal RCTRL SPACE
+#define SPC_GUI &tap_kp_bal RGUI SPACE
+#define SPC_CTRL &tap_kp_bal RCTRL SPACE
 
 ZMK_BEHAVIOR(rpt, hold_tap,
     flavor = "hold-preferred";
@@ -92,20 +92,20 @@ ZMK_BEHAVIOR(dlr_star, mod_morph,
     bindings = <&kp DLLR>, <&kp STAR>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(round, mod_morph,
-    bindings = <&kp LPAR>, <&kp RPAR>;
+ZMK_BEHAVIOR(lround, mod_morph,
+    bindings = <&kp LPAR>, <&kp LBKT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(square, mod_morph,
-    bindings = <&kp LBKT>, <&kp RBKT>;
+ZMK_BEHAVIOR(rround, mod_morph,
+    bindings = <&kp RPAR>, <&kp RBKT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(curly, mod_morph,
-    bindings = <&kp LBRC>, <&kp RBRC>;
+ZMK_BEHAVIOR(lcurly, mod_morph,
+    bindings = <&kp LBRC>, <&kp LT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(angled, mod_morph,
-    bindings = <&kp LT>, <&kp GT>;
+ZMK_BEHAVIOR(rcurly, mod_morph,
+    bindings = <&kp RBRC>, <&kp GT>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
@@ -322,8 +322,8 @@ ZMK_BEHAVIOR(angled, mod_morph,
 //│           │  F5       │  F6       │  F7       │  F8       │           │                             │  PGDN     │  <-        │  v        │  ->       │  PGDN     │           │
     &none       &kp F5      &kp F6      &kp F7      &kp F8      &none                                     &kp PG_DN   &kp LEFT     &kp DOWN    &kp RIGHT   &kp PG_DN   &none   
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤───────────╮     ╭───────────┼───────────┼────────────┼───────────┼───────────┼───────────┼───────────┤
-//│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │           │  INS       │  PSCR     │  CAPS     │           │           │
-    &none       &kp F1      &kp F2      &kp F3      &kp F4      &none       &trans            &trans      &none       &kp INS      &kp PSCRN   &kp CAPS    &trans      &none  
+//│           │  F1       │  F2       │  F3       │  F4       │           │           │     │           │           │  INS       │  PSCR     │           │           │           │
+    &none       &kp F1      &kp F2      &kp F3      &kp F4      &none       &trans            &trans      &none       &kp INS      &kp PSCRN   &trans      &trans      &none  
 //╰───────────┴───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼     ├───────────┼───────────┼────────────┼───────────┼───────────┼───────────┴───────────╯
 //                        │           │           │           │           │  LSHFT    │     │           │           │            │           │           │
                             &none        &trans     &trans      &trans      &kp LSHFT         &trans      &trans      &trans       &trans      &trans
@@ -339,22 +339,22 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
         num {
             bindings = <
-//╭──────────┬──────────┬───────────┬────────────┬────────────┬──────────╮                           ╭──────────┬──────────┬───────────┬──────────┬──────────┬──────────╮
-//│          │  F1      │  F2       │  F3        │  F4        │  F5      │                           │  F6      │  F7      │  F8       │  F9      │  F10     │  F11     │
-    &none      &kp F1     &kp F2      &kp F3       &kp F4       &kp F5                                 &kp F6     &kp F7     &kp F8      &kp F9     &kp F10    &kp F11      
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  /       │  7        │  8         │  9         │  -       │                           │  &       │  ! %     │  @ ^      │  # &     │  $ *     │  F12     │
-    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp MINUS                              &kp AMPS   &excl_pct  &at_caret   &hash_amp  &dlr_star  &kp F12
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤                           ├──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  *       │  4        │  5         │  6         │  +       │                           │  _       │  ( )     │  [ ]      │  { }     │  ' "     │  < >     │
-    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                               &kp UNDER  &round     &square     &curly     &kp APOS   &angled
-//├──────────┼──────────┼───────────┼────────────┼────────────┼──────────┤──────────╮     ╭──────────┼──────────┼──────────┼───────────┼──────────┼──────────┼──────────┤
-//│          │  0       │  1        │  2         │  3         │  ENTER   │          │     │          │  |       │  - _     │  = +      │  \ |     │  ` ~     │          │
-    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET    &trans           &trans     &kp PIPE   &kp MINUS  &kp EQUAL   &kp BSLH   &kp GRAVE  &none
-//╰──────────┴──────────┼───────────┼────────────┼────────────┼──────────┼──────────┼     ├──────────┼──────────┼──────────┼───────────┼──────────┼──────────┴──────────╯
-//                      │           │  SPACE     │  .         │          │  DEL     │     │  RSHFT   │          │          │           │          │
-                          &none       &kp SPACE    &kp DOT      &trans     &kp DEL          &kp RSHFT  &trans     &trans     &trans      &trans
-//                      ╰───────────┴────────────┴────────────┴──────────┴──────────╯     ╰──────────┴──────────┴──────────┴───────────┴──────────╯
+//╭──────────┬──────────┬───────────┬────────────┬────────────┬─────────────╮                           ╭──────────┬──────────┬─────────────┬──────────┬──────────┬──────────╮
+//│          │          │           │            │            │             │                           │          │          │             │          │          │          │
+    &none      &trans     &trans      &trans       &trans       &trans                                    &trans     &trans     &trans        &trans     &trans     &none      
+//├──────────┼──────────┼───────────┼────────────┼────────────┼─────────────┤                           ├──────────┼──────────┼─────────────┼──────────┼──────────┼──────────┤
+//│          │  /       │  7        │  8         │  9         │  -          │                           │  &       │  ! %     │  @ ^        │  # &     │  $ *     │          │
+    &none      &kp FSLH   &kp N7      &kp N8       &kp N9       &kp KP_MINUS                              &kp AMPS   &excl_pct  &at_caret     &hash_amp  &dlr_star  &none
+//├──────────┼──────────┼───────────┼────────────┼────────────┼─────────────┤                           ├──────────┼──────────┼─────────────┼──────────┼──────────┼──────────┤
+//│          │  *       │  4        │  5         │  6         │  +          │                           │  _       │  ( [     │  ) ]        │  { <     │  } >     │  ` ~     │
+    &none      &kp STAR   &kp N4      &kp N5       &kp N6       &kp PLUS                                  &kp UNDER  &lround    &rround       &lcurly    &rcurly    &kp GRAVE
+//├──────────┼──────────┼───────────┼────────────┼────────────┼─────────────┤──────────╮     ╭──────────┼──────────┼──────────┼─────────────┼──────────┼──────────┼──────────┤
+//│          │  0       │  1        │  2         │  3         │  ENTER      │          │     │          │  |       │  :       │  =          │  \ |     │          │          │
+    &none      &kp N0     &kp N1      &kp N2       &kp N3       &kp RET       &trans           &trans     &kp PIPE   &kp COLON  &kp KP_EQUAL  &kp BSLH   &trans     &none
+//╰──────────┴──────────┼───────────┼────────────┼────────────┼─────────────┼──────────┼     ├──────────┼──────────┼──────────┼─────────────┼──────────┼──────────┴──────────╯
+//                      │           │  SPACE     │  .         │             │  DEL     │     │  RSHFT   │          │          │             │          │
+                          &none       &kp SPACE    &kp DOT      &trans        &kp DEL          &kp RSHFT  &trans     &trans     &trans        &trans   
+//                      ╰───────────┴────────────┴────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴──────────┴─────────────┴──────────╯
             >;
 
             sensors {
@@ -366,22 +366,22 @@ ZMK_BEHAVIOR(angled, mod_morph,
 
         cfg {
             bindings = <
-//╭───────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                           ╭──────────┬────────────┬────────────┬──────────┬──────────┬──────────╮
-//│           │  BT1        │  BT2        │  BT3        │  BT4        │  BT5        │                           │          │            │            │          │          │          │
-    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                              &none      &none        &none        &none      &none      &none      
-//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                           ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
-//│           │  BTCLR      │             │             │             │             │                           │          │            │            │          │          │          │
-    &none       &bt BT_CLR    &none         &none         &none         &none                                     &none      &none        &none        &none      &none      &none        
-//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                           ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
-//│           │             │             │             │             │             │                           │          │            │            │          │          │          │
-    &none       &to WIN       &to BASE      &none         &none         &none                                     &none      &none        &none        &none      &none      &none     
-//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤──────────╮     ╭──────────┼──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
-//│           │             │             │             │             │             │          │     │          │          │            │            │          │          │          │
-    &none       &none         &none         &none         &none         &none         &none            &none      &none      &none        &none        &none      &none      &none 
-//╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────┼     ├──────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
-//                          │             │  RESET      │  BOOTLDR    │             │          │     │          │          │  BOOTLDR   │  RESET     │          │
-                              &none         &sys_reset    &bootloader   &none         &none            &none      &none      &bootloader  &sys_reset   &none 
-//                          ╰─────────────┴─────────────┴─────────────┴─────────────┴──────────╯     ╰──────────┴──────────┴────────────┴────────────┴──────────╯
+//╭───────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                ╭──────────┬────────────┬────────────┬──────────┬──────────┬──────────╮
+//│           │  BT1        │  BT2        │  BT3        │  BT4        │  BT5        │                                │          │            │            │          │          │          │
+    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                   &none      &none        &none        &none      &none      &none      
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │  BTCLR      │             │             │             │             │                                │          │            │            │          │          │          │
+    &none       &bt BT_CLR    &none         &none         &none         &none                                          &none      &none        &none        &none      &none      &none        
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                ├──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │             │             │             │             │             │                                │          │            │            │          │          │          │
+    &none       &to WIN       &to BASE      &none         &none         &none                                          &none      &none        &none        &none      &none      &none     
+//├───────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤─────────────╮     ╭────────────┼──────────┼────────────┼────────────┼──────────┼──────────┼──────────┤
+//│           │             │             │             │             │             │             │     │            │          │            │            │          │          │          │
+    &none       &none         &none         &none         &none         &none         &none                 &none      &none      &none        &none        &none      &none      &none 
+//╰───────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼     ├────────────┼──────────┼────────────┼────────────┼──────────┼──────────┴──────────╯
+//                          │             │  RESET      │             │             │  BOOTLDR    │     │  BOOTLDR   │          │            │  RESET     │          │
+                              &none         &sys_reset    &none         &none         &bootloader         &bootloader  &none      &none        &sys_reset   &none 
+//                          ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯     ╰────────────┴──────────┴────────────┴────────────┴──────────╯
             >;
 
             sensors {

@@ -196,10 +196,12 @@ parse_config:
     "&at_caret": "^ @"
     "&hash_amp": "& #"
     "&dlr_star": "* $"
-    "&round": ") ("
-    "&square": "] ["
-    "&curly": "} {"
-    "&angled": "> <"
+    "&lround": "[ ("
+    "&rround": "] )"
+    "&lcurly": "< {"
+    "&rcurly": "> }"
+    "&kp KP_MINUS": "-"
+    "&kp KP_EQUAL": "="
     "&kp LS(TAB)": "⇧TAB"
     "&kp_rpt_nav LALT 0": {"tap": "REPEAT", "hold": "LALTNAV"}
     "&rpt RALT 0": {"tap": "REPEAT", "hold": "RALT"}
